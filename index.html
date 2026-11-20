@@ -547,12 +547,12 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
           <p>Я не использую шаблоны: каждый букет собирается <b>индивидуально</b> под ваш повод, настроение и цветовую палитру.</p>
           <div class="master-signature">Ярослав</div>
         </div>
-        <div class="master-card reveal">
-          <h2>Привет, меня зовут <em>София</em></h2>
-          <p>Уже полгода я занимаюсь созданием букетов из атласных лент. Мне нравится вкладывать частичку тепла в каждую работу — чтобы она радовала своего владельца как можно дольше.</p>
-          <p>Люблю экспериментировать с цветами и фактурами, чтобы каждая работа получилась <b>по-настоящему особенной</b>.</p>
-          <div class="master-signature">София</div>
-        </div>
+       <div class="master-card reveal">
+  <h2>Привет, меня зовут <em>София</em></h2>
+  <p>Уже два года я занимаюсь созданием букетов из атласных лент. Мне нравится вкладывать частичку тепла в каждую работу — чтобы она радовала своего владельца как можно дольше.</p>
+  <p>Люблю экспериментировать с цветами и фактурами, чтобы каждая работа получилась <b>по-настоящему особенной</b>.</p>
+  <div class="master-signature">София</div>
+</div>
       </div>
       <div class="about-meta reveal">
         <div class="about-meta-item"><span class="icon">🌹</span><b>10+</b><span>работ создано</span></div>
@@ -866,7 +866,8 @@ const firebaseConfig = {
   appId: "1:987034301523:web:6983054f456d192a7b02a6"
 };
 
-const ADMIN_EMAIL = 'atelier.rose@mail.ru';
+const ADMIN_EMAILS = ['atelier.rose@mail.ru', 'sonyavolozaninova@gmail.com'];
+const isAdminEmail = (email) => ADMIN_EMAILS.includes((email || '').toLowerCase());
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -944,9 +945,9 @@ function route() {
   else if (h === '#privacy') showPage('privacy');
   else if (h === '#thanks') showPage('thanks');
   else if (h === '#admin') {
-    if (currentUser && currentUser.email === ADMIN_EMAIL) showPage('admin');
-    else { toast('Доступ только для админа', 'error'); showPage('home'); }
-  }
+  if (currentUser && isAdminEmail(currentUser.email)) showPage('admin');
+  else { toast('Доступ только для админа', 'error'); showPage('home'); }
+}
   else showPage('home', h);
 }
 window.addEventListener('hashchange', route);
@@ -1042,7 +1043,7 @@ let currentChatUnsub = null;
 
 onAuthStateChanged(auth, (user) => {
   currentUser = user;
-  isAdmin = !!(user && user.email === ADMIN_EMAIL);
+isAdmin = !!(user && isAdminEmail(user.email));
 
   const orderForm = $('#orderForm');
   const orderAuthNotice = $('#orderAuthNotice');
