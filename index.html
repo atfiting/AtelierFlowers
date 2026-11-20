@@ -126,7 +126,6 @@ section{padding:90px 0;position:relative;z-index:1}
 .work img{width:100%;height:100%;object-fit:cover;transition:transform 1s;display:block}
 .work:hover img{transform:scale(1.08)}
 .work-tag{position:absolute;top:18px;left:18px;z-index:3;background:rgba(255,255,255,.95);color:var(--accent);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:8px 16px;border-radius:30px;font-weight:600}
-.work-master{position:absolute;bottom:18px;right:18px;z-index:3;background:rgba(107,21,48,.9);color:#fff;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:7px 14px;border-radius:30px;font-weight:600;backdrop-filter:blur(10px)}
 .gallery-cta{text-align:center}
 .catalog-note{text-align:center;font-size:.88rem;color:var(--muted);margin-top:36px;font-weight:300}
 .ready-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
@@ -159,8 +158,6 @@ section{padding:90px 0;position:relative;z-index:1}
 .master-card p b{color:var(--text);font-weight:500}
 .master-signature{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.9rem;color:var(--accent);margin-top:24px;display:inline-block;position:relative;z-index:1}
 .master-signature::before,.master-signature::after{content:'·';color:var(--gold);font-size:1.7rem;margin:0 12px;vertical-align:middle;opacity:.6}
-.master-vk{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 20px;background:var(--bg-alt);border:1px solid var(--border);border-radius:30px;text-decoration:none;color:var(--accent);font-size:.78rem;font-weight:600;letter-spacing:.06em;transition:.3s;position:relative;z-index:1}
-.master-vk:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2px)}
 .about-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:720px;margin:0 auto}
 .about-meta-item{text-align:center;padding:24px 18px;background:#fff;border:1px solid var(--border);border-radius:20px;transition:.4s}
 .about-meta-item:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
@@ -172,7 +169,6 @@ section{padding:90px 0;position:relative;z-index:1}
 .rev:hover{box-shadow:var(--shadow-lg);transform:translateY(-8px);border-color:transparent}
 .rev-stars{color:var(--gold);font-size:1rem;margin-bottom:10px;letter-spacing:2px}
 .rev p{font-size:.88rem;font-weight:300;margin-bottom:18px;flex:1;line-height:1.7;white-space:pre-wrap}
-.rev-photo{width:100%;max-height:220px;object-fit:cover;border-radius:12px;margin-bottom:16px;display:block}
 .rev-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
 .rev-ava{width:40px;height:40px;border-radius:50%;background:linear-gradient(140deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;font-size:.82rem;font-weight:700;flex-shrink:0}
 .rev-author b{display:block;font-size:.85rem;font-weight:600}
@@ -290,12 +286,6 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .care-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
 .care-card.danger{border-top:4px solid #a8323f}
 .care-card.ok{border-top:4px solid #4a7c59}
-.care-tips{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
-.tip{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px 24px;text-align:center;transition:.5s}
-.tip:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
-.tip .emoji{font-size:2.2rem;display:block;margin-bottom:14px}
-.tip h4{font-size:1.25rem;font-weight:600;margin-bottom:10px}
-.tip p{font-size:.85rem;color:var(--muted);font-weight:300}
 .gallery-note{max-width:860px;margin:50px auto 0;background:linear-gradient(135deg,#fff,var(--cream));border:1px solid var(--border);border-radius:24px;padding:40px 44px;text-align:center;box-shadow:var(--shadow)}
 .gallery-note h3{font-size:1.7rem;margin-bottom:12px}
 .gallery-note p{font-size:.94rem;color:var(--muted);font-weight:300;margin-bottom:24px}
@@ -306,6 +296,14 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .page.active{display:block}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
 .reveal.in{opacity:1;transform:none}
+.calc-box{background:linear-gradient(135deg,rgba(184,145,47,.08),rgba(201,139,161,.06));border:1px solid rgba(184,145,47,.3);border-radius:18px;padding:22px 26px;margin:6px 0 4px}
+.calc-row{display:flex;justify-content:space-between;align-items:center;font-size:.92rem;padding:5px 0;color:var(--muted);font-weight:400}
+.calc-row b{color:var(--text);font-weight:600}
+.calc-total{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--border);margin-top:10px;padding-top:12px;font-size:1.05rem}
+.calc-total span{font-weight:600;color:var(--text)}
+.calc-total b{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent);line-height:1;font-weight:600}
+.calc-box small{display:block;margin-top:8px;font-size:.76rem;color:var(--muted);font-weight:300;line-height:1.5}
+@media(max-width:620px){.calc-box{padding:18px 20px}.calc-total b{font-size:1.7rem}}
 .admin-tabs{display:flex;gap:8px;margin-bottom:30px;flex-wrap:wrap;justify-content:center;background:var(--bg-alt);padding:6px;border-radius:44px;max-width:700px;margin-left:auto;margin-right:auto}
 .admin-tab{padding:12px 22px;border:none;background:transparent;border-radius:34px;font-family:'Montserrat',sans-serif;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--muted);cursor:pointer;transition:.3s}
 .admin-tab.active{background:#fff;color:var(--accent);box-shadow:0 4px 14px -6px rgba(0,0,0,.15)}
@@ -342,6 +340,8 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .admin-order-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
 .admin-order-info div{font-size:.88rem}
 .admin-order-info b{color:var(--muted);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px}
+.admin-order-total{margin-top:14px;padding-top:12px;border-top:1px dashed var(--border);display:flex;justify-content:space-between;align-items:center;font-size:1rem}
+.admin-order-total b{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--accent);font-weight:600}
 .admin-order-actions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
 .admin-order-actions a,.admin-order-actions button{padding:12px 20px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--border);background:#fff;color:var(--text);cursor:pointer;transition:.3s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
 .admin-order-actions a:hover,.admin-order-actions button:hover{border-color:var(--accent);color:var(--accent)}
@@ -359,7 +359,6 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .admin-review button:hover{background:var(--error);color:#fff}
 .bouquets-header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
 .bouquets-header h3{font-size:1.5rem;font-weight:600}
-.bouquets-header .btn{white-space:nowrap}
 .bouquets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
 .bouquet-admin-card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:.3s;position:relative}
 .bouquet-admin-card:hover{box-shadow:var(--shadow);border-color:transparent}
@@ -378,10 +377,6 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .bouquet-form-wrapper{display:none;background:#fff;border:1px solid var(--border);border-radius:22px;padding:32px;margin-bottom:28px;box-shadow:var(--shadow)}
 .bouquet-form-wrapper.open{display:block}
 .bouquet-form-wrapper h3{font-size:1.4rem;margin-bottom:20px}
-.bouquet-form-wrapper .form-row{margin-bottom:16px}
-.bouquet-form-wrapper .form-field > span{font-size:.72rem}
-.bouquet-form-wrapper .btn-row{display:flex;gap:12px;margin-top:8px;justify-content:flex-end;flex-wrap:wrap}
-.bouquet-form-wrapper .btn-row .btn{padding:14px 28px;font-size:.74rem}
 .bouquet-photo-preview{margin-top:10px;border-radius:12px;overflow:hidden;background:var(--bg-alt);max-width:200px;display:none}
 .bouquet-photo-preview img{width:100%;display:block}
 .bouquet-photo-preview.show{display:block}
@@ -416,60 +411,8 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 @media (max-width:1250px){nav ul{gap:12px}nav a{font-size:.72rem;letter-spacing:.03em}.logo-text b{font-size:1.12rem;letter-spacing:.12em}.logo-text span{font-size:.5rem;letter-spacing:.18em}.nav-cta{padding:10px 16px;font-size:.68rem}.btn-auth{padding:10px 14px;font-size:.68rem}.user-chip{max-width:160px}.user-chip .name{font-size:.72rem}.logo-mark{width:42px;height:42px}}
 @media (max-width:1100px){nav ul{gap:10px}nav a{font-size:.68rem;letter-spacing:.02em}nav ul li:nth-child(7){display:none}}
 @media (max-width:980px){:root{--header-h:68px}nav ul,.nav-cta,.btn-auth{display:none}.user-chip .name{display:none}.user-chip{padding:5px}.menu-toggle{display:flex}.mobile-menu{display:block}.logo-text span{display:none}.logo-text b{font-size:1.15rem}.user-dropdown{right:18px}.hero-grid{grid-template-columns:1fr;gap:44px}.hero-photo-wrap{max-width:380px;margin:0 auto}.adv-grid,.rev-grid,.ready-grid{grid-template-columns:repeat(2,1fr)}.gallery-preview,.gallery-full{grid-template-columns:repeat(2,1fr)}.foot-grid{grid-template-columns:1fr 1fr}section{padding:60px 0}.cta-box{padding:50px 28px}.steps{grid-template-columns:repeat(2,1fr)}.two-cols,.care-grid{grid-template-columns:1fr}.care-tips{grid-template-columns:repeat(2,1fr)}.highlight-box{grid-template-columns:1fr;gap:18px;padding:40px 32px}.form-wrapper{padding:40px 32px}.form-row{grid-template-columns:1fr}.deadline-banner{grid-template-columns:1fr;gap:14px;padding:30px 26px;text-align:center}.admin-stats{grid-template-columns:repeat(2,1fr)}.masters-grid{grid-template-columns:1fr}header{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(251,247,244,.98)}.hero-deco{display:none}.reveal{transition:opacity 0.4s ease;transform:none;opacity:1}}
-@media (max-width:620px){.container{padding:0 18px}:root{--header-h:64px}.logo-mark{width:40px;height:40px}.logo-text b{font-size:1.05rem}.logo-text span{display:none}.menu-toggle{width:44px;height:44px}section{padding:50px 0}.section-head{margin-bottom:36px}.section-head h2{font-size:1.85rem}.marquee{padding:14px 0}.marquee-item{font-size:1.1rem;padding:0 18px;gap:18px}.hero{padding:40px 0 54px}.hero h1{font-size:clamp(2rem,9vw,2.6rem)}.hero-btns{flex-direction:column;gap:10px;margin-top:28px}.hero-btns .btn{width:100%;padding:18px 24px;font-size:.8rem}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px;text-align:center}.hero-stats .stat b{font-size:1.5rem}.hero-stats .stat span{font-size:.56rem}.hero-photo{font-size:6rem;border-radius:160px 160px 16px 16px}.photo-badge{padding:10px 14px;bottom:12px;right:-10px;border-radius:14px}.photo-badge b{font-size:1.2rem}.photo-badge span{font-size:.55rem;letter-spacing:.1em}.hero-note{margin-top:28px;padding:18px 20px;font-size:.84rem}.adv-grid,.rev-grid,.gallery-preview,.gallery-full,.steps,.care-tips,.about-meta,.masters-grid,.ready-grid{grid-template-columns:1fr}.master-card{padding:32px 22px;border-radius:20px}.master-card::before{font-size:7rem}.price-banner{flex-direction:column}.price-item{padding:22px 22px}.price-item:not(:last-child)::after{display:none}.price-item:not(:last-child){border-bottom:1px solid var(--border)}.cta-box{padding:44px 22px;border-radius:24px}.cta-box h2{font-size:1.6rem}.cta-box .btn{width:100%;padding:18px 24px;font-size:.8rem}.form-wrapper{padding:30px 20px;border-radius:24px}.form-row{margin-bottom:16px}.form-field > span{font-size:.72rem}.form-field input,.form-field textarea,.form-field select{padding:17px 18px;font-size:16px;border-radius:12px}.form-field textarea{min-height:110px}.form-submit{width:100%;padding:20px 30px;font-size:.8rem;margin-top:30px}.auth-modal{padding:36px 26px;border-radius:22px}.foot-grid{grid-template-columns:1fr;gap:28px}.foot-bottom{flex-direction:column;text-align:center;gap:10px}.chat-wrapper{border-radius:20px}.chat-body{padding:16px 18px;min-height:280px;max-height:400px}.chat-input-row{padding:12px 14px;flex-direction:row}.chat-input-row input{padding:14px 18px}.chat-send{padding:14px 20px;font-size:.74rem}.chat-header{padding:18px 20px}.chat-header .ava{width:40px;height:40px}.inner-hero{padding:46px 0 30px}.inner-hero h1{font-size:clamp(1.9rem,8vw,2.5rem)}.back-link{font-size:.72rem;margin-bottom:18px}.info-card{padding:32px 22px;border-radius:20px}.care-card{padding:32px 22px;border-radius:20px}.highlight-box{padding:34px 22px;border-radius:20px}.highlight-num{font-size:3.4rem}.info-list li{padding:14px 0;font-size:.88rem}.info-note{padding:26px 20px;font-size:.86rem}.info-note .btn, .gallery-note .btn{display:block;width:100%;padding:18px 24px;font-size:.78rem}.gallery-note{padding:30px 22px;border-radius:20px}.deadline-banner{padding:26px 20px;border-radius:20px;margin-bottom:36px}.deadline-icon{font-size:2.8rem}.deadline-text h3{font-size:1.15rem}.ready-empty{padding:44px 22px;border-radius:22px}.ready-empty .emoji{font-size:3rem}.ready-empty h3{font-size:1.4rem}.admin-stats{grid-template-columns:1fr;gap:10px;margin-bottom:24px}.admin-stat{padding:18px 16px;border-radius:16px}.admin-stat b{font-size:2rem}.admin-stat span{font-size:.66rem;margin-top:6px}.admin-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:var(--bg-alt);padding:5px;border-radius:16px;max-width:none;margin:0 0 20px;position:sticky;top:calc(var(--header-h) + 8px);z-index:20;box-shadow:0 8px 20px -12px rgba(0,0,0,.15);}.admin-tab{padding:12px 4px;border-radius:12px;font-size:.62rem;letter-spacing:.02em;display:flex;flex-direction:column;align-items:center;gap:3px;}.admin-tab.active{background:#fff;color:var(--accent)}.admin-chats{display:block;border:none;border-radius:0;background:transparent;overflow:visible;min-height:auto;position:relative;}.admin-chat-list{border:none;border-radius:16px;max-height:none;overflow:visible;background:transparent;display:flex;flex-direction:column;gap:10px;}.admin-chat-item{padding:18px 20px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 6px 16px -12px rgba(0,0,0,.2);}.admin-chat-item.active{background:#fff;border-left:3px solid var(--accent)}.admin-chat-view{display:none;max-height:none;background:#fff;border-radius:16px;border:1px solid var(--border);overflow:hidden}.admin-chat-view.mobile-open{display:flex;position:fixed;inset:var(--header-h) 0 0 0;background:#fff;z-index:100;border-radius:0;max-height:none;flex-direction:column;}.admin-chat-view-header{padding:14px 18px;padding-top:calc(14px + env(safe-area-inset-top,0px));background:var(--bg-alt);border-bottom:1px solid var(--border);flex-shrink:0;}.admin-chat-view-header b{font-size:.95rem}.admin-chat-view-header span{font-size:.7rem}.admin-back-btn{display:flex;width:42px;height:42px;font-size:1.05rem}.admin-chat-messages{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 18px;min-height:auto;max-height:none;}.admin-chat-input{padding:12px 14px;padding-bottom:calc(12px + var(--safe-b));flex-shrink:0}.admin-chat-input input{padding:15px 18px;font-size:16px}.admin-chat-input button{padding:15px 22px;font-size:.76rem}.admin-order{padding:20px 18px;border-radius:16px}.admin-order-header h4{font-size:1.05rem}.admin-order-info{grid-template-columns:1fr 1fr;gap:12px}.admin-order-info div{font-size:.84rem}.admin-order-info b{font-size:.66rem}.admin-order-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.admin-order-actions a, .admin-order-actions button{width:100%;padding:14px 12px;font-size:.72rem;justify-content:center}.admin-order-actions .btn-danger{grid-column:1/-1}.admin-review{padding:20px 18px;border-radius:16px}.admin-review-header b{font-size:.88rem}.admin-review p{font-size:.85rem}.admin-review button{width:100%;padding:14px 20px;font-size:.74rem}.bouquets-header{flex-direction:column;align-items:stretch}.bouquets-header .btn{width:100%}.bouquets-grid{grid-template-columns:1fr 1fr;gap:12px}.bouquet-admin-card .info{padding:12px 14px}.bouquet-admin-card .info h4{font-size:.92rem}.bouquet-admin-card .info .desc{font-size:.74rem}.bouquet-admin-card .info .price{font-size:1.2rem}.bouquet-admin-card .actions{flex-direction:column}.bouquet-admin-card .actions button{width:100%}.bouquet-form-wrapper{padding:22px 18px;border-radius:18px}.bouquet-form-wrapper .btn-row .btn{width:100%}}
+@media (max-width:620px){.container{padding:0 18px}:root{--header-h:64px}.logo-mark{width:40px;height:40px}.logo-text b{font-size:1.05rem}.logo-text span{display:none}.menu-toggle{width:44px;height:44px}section{padding:50px 0}.section-head{margin-bottom:36px}.section-head h2{font-size:1.85rem}.marquee{padding:14px 0}.marquee-item{font-size:1.1rem;padding:0 18px;gap:18px}.hero{padding:40px 0 54px}.hero h1{font-size:clamp(2rem,9vw,2.6rem)}.hero-btns{flex-direction:column;gap:10px;margin-top:28px}.hero-btns .btn{width:100%;padding:18px 24px;font-size:.8rem}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px;text-align:center}.hero-stats .stat b{font-size:1.5rem}.hero-stats .stat span{font-size:.56rem}.hero-photo{font-size:6rem;border-radius:160px 160px 16px 16px}.photo-badge{padding:10px 14px;bottom:12px;right:-10px;border-radius:14px}.photo-badge b{font-size:1.2rem}.photo-badge span{font-size:.55rem;letter-spacing:.1em}.hero-note{margin-top:28px;padding:18px 20px;font-size:.84rem}.adv-grid,.rev-grid,.gallery-preview,.gallery-full,.steps,.care-tips,.about-meta,.masters-grid,.ready-grid{grid-template-columns:1fr}.master-card{padding:32px 22px;border-radius:20px}.master-card::before{font-size:7rem}.price-banner{flex-direction:column}.price-item{padding:22px 22px}.price-item:not(:last-child)::after{display:none}.price-item:not(:last-child){border-bottom:1px solid var(--border)}.cta-box{padding:44px 22px;border-radius:24px}.cta-box h2{font-size:1.6rem}.cta-box .btn{width:100%;padding:18px 24px;font-size:.8rem}.form-wrapper{padding:30px 20px;border-radius:24px}.form-row{margin-bottom:16px}.form-field > span{font-size:.72rem}.form-field input,.form-field textarea,.form-field select{padding:17px 18px;font-size:16px;border-radius:12px}.form-field textarea{min-height:110px}.form-submit{width:100%;padding:20px 30px;font-size:.8rem;margin-top:30px}.auth-modal{padding:36px 26px;border-radius:22px}.foot-grid{grid-template-columns:1fr;gap:28px}.foot-bottom{flex-direction:column;text-align:center;gap:10px}.chat-wrapper{border-radius:20px}.chat-body{padding:16px 18px;min-height:280px;max-height:400px}.chat-input-row{padding:12px 14px;flex-direction:row}.chat-input-row input{padding:14px 18px}.chat-send{padding:14px 20px;font-size:.74rem}.chat-header{padding:18px 20px}.chat-header .ava{width:40px;height:40px}.inner-hero{padding:46px 0 30px}.inner-hero h1{font-size:clamp(1.9rem,8vw,2.5rem)}.back-link{font-size:.72rem;margin-bottom:18px}.info-card{padding:32px 22px;border-radius:20px}.care-card{padding:32px 22px;border-radius:20px}.highlight-box{padding:34px 22px;border-radius:20px}.highlight-num{font-size:3.4rem}.info-list li{padding:14px 0;font-size:.88rem}.info-note{padding:26px 20px;font-size:.86rem}.info-note .btn, .gallery-note .btn{display:block;width:100%;padding:18px 24px;font-size:.78rem}.gallery-note{padding:30px 22px;border-radius:20px}.deadline-banner{padding:26px 20px;border-radius:20px;margin-bottom:36px}.deadline-icon{font-size:2.8rem}.deadline-text h3{font-size:1.15rem}.ready-empty{padding:44px 22px;border-radius:22px}.ready-empty .emoji{font-size:3rem}.ready-empty h3{font-size:1.4rem}.admin-stats{grid-template-columns:1fr;gap:10px;margin-bottom:24px}.admin-stat{padding:18px 16px;border-radius:16px}.admin-stat b{font-size:2rem}.admin-stat span{font-size:.66rem;margin-top:6px}.admin-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:var(--bg-alt);padding:5px;border-radius:16px;max-width:none;margin:0 0 20px;position:sticky;top:calc(var(--header-h) + 8px);z-index:20;box-shadow:0 8px 20px -12px rgba(0,0,0,.15);}.admin-tab{padding:12px 4px;border-radius:12px;font-size:.62rem;letter-spacing:.02em;display:flex;flex-direction:column;align-items:center;gap:3px;}.admin-chats{display:block;border:none;border-radius:0;background:transparent;overflow:visible;min-height:auto;position:relative;}.admin-chat-list{border:none;border-radius:16px;max-height:none;overflow:visible;background:transparent;display:flex;flex-direction:column;gap:10px;}.admin-chat-item{padding:18px 20px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 6px 16px -12px rgba(0,0,0,.2);}.admin-chat-view{display:none;max-height:none;background:#fff;border-radius:16px;border:1px solid var(--border);overflow:hidden}.admin-chat-view.mobile-open{display:flex;position:fixed;inset:var(--header-h) 0 0 0;background:#fff;z-index:100;border-radius:0;max-height:none;flex-direction:column;}.admin-back-btn{display:flex;width:42px;height:42px;font-size:1.05rem}.admin-order{padding:20px 18px;border-radius:16px}.admin-order-info{grid-template-columns:1fr 1fr;gap:12px}.admin-order-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.admin-order-actions a, .admin-order-actions button{width:100%;padding:14px 12px;font-size:.72rem;justify-content:center}.admin-order-actions .btn-danger{grid-column:1/-1}.admin-review{padding:20px 18px;border-radius:16px}.bouquets-grid{grid-template-columns:1fr 1fr;gap:12px}.bouquet-admin-card .actions{flex-direction:column}.bouquet-admin-card .actions button{width:100%}.bouquet-form-wrapper{padding:22px 18px;border-radius:18px}.bouquet-form-wrapper .btn-row .btn{width:100%}}
 @media (max-width:380px){.container{padding:0 14px}.hero h1{font-size:1.85rem}.section-head h2{font-size:1.7rem}.inner-hero h1{font-size:1.75rem}}
-/* ===== УМНЫЙ ПРЕМИУМ-ДИЗАЙН ===== */
-/* 1. Свечение для главных кнопок */
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-}
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%; width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s;
-  pointer-events: none;
-}
-.btn-primary:hover::after {
-  opacity: 1;
-}
-
-/* 2. 3D-наклон карточек (только для ПК) */
-@media (min-width: 1024px) {
-  .ready-card, .work {
-    transition: transform 0.1s ease-out, box-shadow 0.4s ease;
-    transform-style: preserve-3d;
-  }
-  .ready-card:hover, .work:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 30px 60px -12px rgba(107, 21, 48, 0.4);
-  }
-}
-
-/* 3. Эффект стекла для шапки */
-header {
-  background: rgba(251, 247, 244, 0.75) !important;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* 4. Более мягкое появление текста */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  filter: blur(4px);
-  transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
-}
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
 </style>
 </head>
 <body>
@@ -535,7 +478,7 @@ header {
         <div class="hero-stats">
           <div class="stat"><b>10+</b><span>работ</span></div>
           <div class="stat"><b>1 год</b><span>опыта</span></div>
-          <div class="stat"><b>75 ₽</b><span>за розу</span></div>
+          <div class="stat"><b>от 63 ₽</b><span>за розу</span></div>
         </div>
       </div>
       <div class="hero-photo-wrap">
@@ -548,8 +491,8 @@ header {
     </div>
   </section>
   <div class="marquee"><div class="marquee-track">
-    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item marquee-accent">предоплата 50%</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">75 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
-    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item marquee-accent">предоплата 50%</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">75 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
+    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item marquee-accent">предоплата 50%</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">от 63 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
+    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item marquee-accent">предоплата 50%</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">от 63 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
   </div></div>
   <section class="section-alt">
     <div class="container">
@@ -574,22 +517,24 @@ header {
       <div id="readyGrid" class="ready-grid"></div>
     </div>
   </section>
-    <section id="gallery-preview" class="section-alt">
+  <section id="gallery-preview" class="section-alt">
     <div class="container">
       <div class="section-head reveal"><div class="eyebrow">Портфолио</div><h2>Наши лучшие работы</h2><div class="divider center"></div><p>Примеры работ — каждую можно повторить под ваш запрос.</p></div>
-           <div class="price-banner reveal">
-        <div class="price-item"><b>75 ₽</b><span>роза</span></div>
+      <div class="price-banner reveal">
+        <div class="price-item"><b>75 ₽</b><span>роза · 5–13 шт</span></div>
+        <div class="price-item"><b>68 ₽</b><span>роза · 13–19 шт</span></div>
+        <div class="price-item"><b>63 ₽</b><span>роза · от 19 шт</span></div>
         <div class="price-item"><b>40 ₽</b><span>плюмерия</span></div>
-        <div class="price-item"><b>5–7 дней</b><span>на изготовление</span></div>
-        <div class="price-item"><b>0 ₽</b><span>доставка по краю</span></div>
       </div>
       <div class="gallery-preview">
         <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-38.vkuserphoto.ru/s/v1/ig2/lQN9BGQv6XaPEYX08OMZKxzIRcox5rMbbZCBPU24XZcmBX8aFIx7ti7iI5xxUSgpHcpnztnQwAFJ8tZPlIeSK87n.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=bxARp8N7P_P2K41-zes7ferpnN9A2t0kOfslMfs4zTs&cs=1280x0" alt="Букет"></div>
         <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-71.vkuserphoto.ru/s/v1/ig2/8Y2vwyv0Ceyn6n3_b5nQPc-F_9qdPdMnBZwVu9CzoIf5R374C9haIy67bZr3bX_3reezRd6jpqPSdbwXrJx4TIWx.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=67_HXr06b7CosCaJpapaDzzBB4H86M9t_mLTZ33-xg8&cs=1280x0" alt="Букет"></div>
         <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-46.vkuserphoto.ru/s/v1/ig2/FUUDPVQwwX_I2IXdZ9HyqUiGmx94z21UBWmxxsgJUoqlEd5Z3rb2iKug0Qlpz3KiUINzmmjA6RVPcvJdnAv3Nstv.jpg?quality=95&as=32x38,48x57,72x86,108x128,160x190,240x286,360x428,480x571,540x642,640x761,720x857,1080x1285,1170x1392&from=bu&u=mOAfrC-4XWOIjIhHW5y9p9t4T9kq1stoYxNjG6fpmvk&cs=1170x0" alt="Букет"></div>
+        <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-77.vkuserphoto.ru/s/v1/ig2/NPq-5Byh-7aAK2zXSRc57uLBE2m06Nc8ya25usJB10Bqn8DLZLGLF_-U49oX1C3flhui5JXzkS3ZfJ6DwORBoV6Q.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+        <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-84.vkuserphoto.ru/s/v1/ig2/1XYP0_5q_hlLoVEWmvgIPXWArxctAbXUZFjXm3HHItwJH9gmmoRMEb8L6uxCiHLiA1IKV5V0UBGPpv1UrD9rZzBb.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
       </div>
       <div class="gallery-cta reveal" style="margin-top:44px;"><a href="#gallery" class="btn btn-primary">Смотреть всё портфолио →</a></div>
-      <p class="catalog-note">Стоимость рассчитывается индивидуально — зависит от количества роз, оттенка и декора.</p>
+      <p class="catalog-note">Чем больше роз в букете — тем ниже цена за штуку. Итоговая стоимость зависит от количества, оттенка и декора.</p>
     </div>
   </section>
   <section id="about">
@@ -603,10 +548,10 @@ header {
           <div class="master-signature">Ярослав</div>
         </div>
         <div class="master-card reveal">
-          <h2>Привет, меня зовут <em>Артём</em></h2>
+          <h2>Привет, меня зовут <em>София</em></h2>
           <p>Уже полгода я занимаюсь созданием букетов из атласных лент. Мне нравится вкладывать частичку тепла в каждую работу — чтобы она радовала своего владельца как можно дольше.</p>
           <p>Люблю экспериментировать с цветами и фактурами, чтобы каждая работа получилась <b>по-настоящему особенной</b>.</p>
-          <div class="master-signature">Артём</div>
+          <div class="master-signature">София</div>
         </div>
       </div>
       <div class="about-meta reveal">
@@ -646,12 +591,14 @@ header {
 <main id="page-gallery" class="page">
   <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Портфолио</div><h1>Наши работы</h1><div class="divider center"></div><p>Готовых букетов нет — каждая работа создаётся на заказ.</p></div></section>
   <section style="padding-top:20px;"><div class="container">
-       <div class="gallery-full">
+    <div class="gallery-full">
       <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-38.vkuserphoto.ru/s/v1/ig2/lQN9BGQv6XaPEYX08OMZKxzIRcox5rMbbZCBPU24XZcmBX8aFIx7ti7iI5xxUSgpHcpnztnQwAFJ8tZPlIeSK87n.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=bxARp8N7P_P2K41-zes7ferpnN9A2t0kOfslMfs4zTs&cs=1280x0" alt="Букет"></div>
       <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-71.vkuserphoto.ru/s/v1/ig2/8Y2vwyv0Ceyn6n3_b5nQPc-F_9qdPdMnBZwVu9CzoIf5R374C9haIy67bZr3bX_3reezRd6jpqPSdbwXrJx4TIWx.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=67_HXr06b7CosCaJpapaDzzBB4H86M9t_mLTZ33-xg8&cs=1280x0" alt="Букет"></div>
       <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-46.vkuserphoto.ru/s/v1/ig2/FUUDPVQwwX_I2IXdZ9HyqUiGmx94z21UBWmxxsgJUoqlEd5Z3rb2iKug0Qlpz3KiUINzmmjA6RVPcvJdnAv3Nstv.jpg?quality=95&as=32x38,48x57,72x86,108x128,160x190,240x286,360x428,480x571,540x642,640x761,720x857,1080x1285,1170x1392&from=bu&u=mOAfrC-4XWOIjIhHW5y9p9t4T9kq1stoYxNjG6fpmvk&cs=1170x0" alt="Букет"></div>
       <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-70.vkuserphoto.ru/s/v1/ig2/28tIE9G7j8HT527dc_iZAQTHhal5htYmbz0Cm-SFEZT1EeprRUXb-Vi20uRfRTdIocXR2yiTMq_d3bDx06YF73il.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
       <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-38.vkuserphoto.ru/s/v1/ig2/-a4bZZVSYtj4FGL0qDKUcl8O0BUk1LP_z8t8dDDzZfjJOJjYxpFbTeSanBnROHqLbzX3gZuIeK9rgyWmKX3n92qD.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-77.vkuserphoto.ru/s/v1/ig2/NPq-5Byh-7aAK2zXSRc57uLBE2m06Nc8ya25usJB10Bqn8DLZLGLF_-U49oX1C3flhui5JXzkS3ZfJ6DwORBoV6Q.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-84.vkuserphoto.ru/s/v1/ig2/1XYP0_5q_hlLoVEWmvgIPXWArxctAbXUZFjXm3HHItwJH9gmmoRMEb8L6uxCiHLiA1IKV5V0UBGPpv1UrD9rZzBb.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
     </div>
     <div class="gallery-note reveal"><h3>Хотите похожий букет?</h3><p>Любую работу можно повторить в другом оттенке, размере и составе.</p><a href="#order" class="btn btn-primary">Оставить заявку →</a></div>
   </div></section>
@@ -698,8 +645,14 @@ header {
         <label class="form-field full"><span>К какой дате нужен букет</span><input type="text" id="orderDate" placeholder="например, 8 марта"></label>
       </div>
       <div class="form-row">
-        <label class="form-field"><span>Количество роз</span><input type="text" id="orderQty" placeholder="7 или «посоветуйте»"></label>
+        <label class="form-field"><span>Количество роз</span><input type="number" id="orderQty" min="5" step="1" placeholder="Например, 15"></label>
         <label class="form-field"><span>Оттенок / пожелания</span><input type="text" id="orderColor" placeholder="пудровый, бордо, белый..."></label>
+      </div>
+      <div class="calc-box" id="calcBox" style="display:none;">
+        <div class="calc-row"><span>Цена за розу:</span><b id="calcPerRose">—</b></div>
+        <div class="calc-row"><span>Количество:</span><b id="calcQty">—</b></div>
+        <div class="calc-total"><span>Итого:</span><b id="calcTotal">—</b></div>
+        <small id="calcHint"></small>
       </div>
       <div class="form-row"><label class="form-field full"><span>Комментарий</span><textarea id="orderComment" placeholder="Повод, особые пожелания"></textarea></label></div>
       <label class="form-consent">
@@ -709,7 +662,7 @@ header {
       <button type="submit" class="form-submit" id="orderSubmit">Отправить заявку</button>
       <p class="form-note">Заявка сразу придёт мастеру — <b>я свяжусь с вами лично</b> по указанному телефону</p>
     </form>
-    <div class="info-note reveal"><p><b>Роза — 75 ₽ · Плюмерия — 40 ₽.</b> Итоговая цена зависит от количества, цветов и декора. 🌹🌺</p></div>
+    <div class="info-note reveal"><p><b>Роза: 75 ₽ (5–13) · 68 ₽ (13–19) · 63 ₽ (от 19).</b> Плюмерия — 40 ₽. Итоговая цена зависит от цветов и декора. 🌹🌺</p></div>
   </div></section>
 </main>
 <main id="page-delivery" class="page">
@@ -839,7 +792,7 @@ header {
             <label class="form-field"><span>Мастер <b class="req">*</b></span>
               <select id="bouquetMaster" required>
                 <option value="Ярослав">Ярослав</option>
-                <option value="Артём">Артём</option>
+                <option value="София">София</option>
               </select>
             </label>
             <label class="form-field"><span>Ссылка на фото <b class="req">*</b></span><input type="url" id="bouquetPhoto" placeholder="https://..." required></label>
@@ -862,7 +815,9 @@ header {
   <div class="container">
     <div class="foot-grid">
       <div class="foot-about">
-                <div class="logo"><div class="logo-mark"><img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/2IUGzBjw6Aze9BUu_dVHzhA0FyMtL2c25AVExbxj7-TKqSCaM0VjRbL4llg0bYk42Cb28le18V6O6TdQdWGLpX_H.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&u=eI0um_PKOxa-miIOKuGYnAoV4hIjq9OOBKTyYT9qfIE&cs=1254x0" alt="ATELIER ROSE"></div><div class="logo-text"><b>ATELIER ROSE</b><span>букеты из атласных лент</span></div></div>
+        <div class="logo"><div class="logo-mark"><img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/2IUGzBjw6Aze9BUu_dVHzhA0FyMtL2c25AVExbxj7-TKqSCaM0VjRbL4llg0bYk42Cb28le18V6O6TdQdWGLpX_H.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&u=eI0um_PKOxa-miIOKuGYnAoV4hIjq9OOBKTyYT9qfIE&cs=1254x0" alt="ATELIER ROSE"></div><div class="logo-text"><b>ATELIER ROSE</b><span>букеты из атласных лент</span></div></div>
+        <p>Авторские букеты из атласных лент ручной работы. Соликамск, Березники и Пермский край.</p>
+      </div>
       <div><h4>Разделы</h4><ul><li><a href="#ready" data-nav>Готовые букеты</a></li><li><a href="#gallery" data-nav>Портфолио</a></li><li><a href="#about" data-nav>О мастерах</a></li><li><a href="#reviews" data-nav>Отзывы</a></li></ul></div>
       <div><h4>Информация</h4><ul><li><a href="#order" data-nav>Как заказать</a></li><li><a href="#delivery" data-nav>Доставка и оплата</a></li><li><a href="#care" data-nav>Уход</a></li><li><a href="#privacy" data-nav>Политика конфиденциальности</a></li></ul></div>
       <div><h4>Общение</h4><ul><li><a href="#chat" data-nav>Чат с нами</a></li><li><a href="#reviews" data-nav>Оставить отзыв</a></li></ul></div>
@@ -896,11 +851,11 @@ header {
     </form>
   </div>
 </div>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast">
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, query, orderBy, onSnapshot, serverTimestamp, getDoc, setDoc, collectionGroup } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, query, orderBy, onSnapshot, serverTimestamp, getDoc, setDoc, where } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyArDA698lfs7oxFc3g2ELHbCkd2bxE_DzI",
@@ -918,6 +873,29 @@ const db = getFirestore(app);
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
+
+// ===== ТАРИФЫ НА РОЗЫ =====
+const ROSE_TIERS = [
+  { min: 19, price: 63 },
+  { min: 13, price: 68 },
+  { min: 5,  price: 75 }
+];
+function getRosePrice(qty) {
+  const n = parseInt(qty, 10);
+  if (!n || n < 5) return 75;
+  for (const tier of ROSE_TIERS) {
+    if (n >= tier.min) return tier.price;
+  }
+  return 75;
+}
+function calcBouquetTotal(qty) {
+  const n = parseInt(qty, 10);
+  if (!n || n < 1) return 0;
+  return n * getRosePrice(n);
+}
+function formatPrice(v) {
+  return new Intl.NumberFormat('ru-RU').format(v) + ' ₽';
+}
 
 function toast(msg, type='') {
   const t = $('#toast');
@@ -1059,11 +1037,12 @@ $('#logoutBtn').addEventListener('click', async () => {
 
 let currentUser = null;
 let isAdmin = false;
+let currentChatUnsub = null;
 
 onAuthStateChanged(auth, (user) => {
   currentUser = user;
-  isAdmin = user && user.email === ADMIN_EMAIL;
-  
+  isAdmin = !!(user && user.email === ADMIN_EMAIL);
+
   const orderForm = $('#orderForm');
   const orderAuthNotice = $('#orderAuthNotice');
   if (orderForm && orderAuthNotice) {
@@ -1082,686 +1061,663 @@ onAuthStateChanged(auth, (user) => {
   if($('#navAdminLiMobile')) $('#navAdminLiMobile').style.display = isAdmin ? 'block' : 'none';
   if($('#ddAdmin')) $('#ddAdmin').style.display = isAdmin ? 'flex' : 'none';
   if (user) {
-    const name = user.displayName || user.email.split('@')[0];
-    const initial = name.charAt(0).toUpperCase();
-    nav.innerHTML = `
-      <a href="#order" class="nav-cta">Заказать</a>
-      <div class="user-chip" id="userChip"><div class="ava">${initial}</div><span class="name">${name}</span></div>
-    `;
-    $('#ddName').textContent = name + (isAdmin ? ' 👑' : '');
-    $('#ddEmail').textContent = user.email;
-    $('#userChip').addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdown.classList.toggle('open');
-    });
-    $('#mobileLoginBtn').textContent = '👤 ' + name;
-    $('#mobileLoginBtn').onclick = () => { closeMobileMenu(); $('#userDropdown').classList.toggle('open'); };
-    renderChat();
-    updateReviewButton(true);
-    if (isAdmin) loadAdminPanel();
-  } else {
-    nav.innerHTML = `<a href="#order" class="nav-cta">Заказать</a><button class="btn-auth" id="loginBtn">Войти</button>`;
-    $('#loginBtn').addEventListener('click', () => openAuth('login'));
-    $('#mobileLoginBtn').textContent = 'Войти / Регистрация';
-    $('#mobileLoginBtn').onclick = () => { closeMobileMenu(); openAuth('login'); };
-    renderChat();
-    updateReviewButton(false);
-  }
-});
-
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.user-dropdown') && !e.target.closest('.user-chip')) {
-    $('#userDropdown')?.classList.remove('open');
-  }
-});
-
-let allBouquets = [];
-function renderReadyBouquets() {
-  const homeGrid = $('#readyGrid');
-  const fullGrid = $('#readyGridFull');
-  if (!homeGrid && !fullGrid) return;
-
-  if (allBouquets.length === 0) {
-    const emptyHtml = `
-      <div class="ready-empty" style="grid-column:1/-1;">
-        <span class="emoji">🌷</span>
-        <h3>Готовых букетов пока нет</h3>
-        <p>Все букеты создаются на заказ — свяжитесь с нами, и мы соберём букет специально для вас. А как только появятся готовые работы — они появятся здесь.</p>
-        <a href="#order" class="btn btn-primary" data-nav>Заказать букет →</a>
-      </div>`;
-    if (homeGrid) homeGrid.innerHTML = emptyHtml;
-    if (fullGrid) fullGrid.innerHTML = emptyHtml;
-    return;
-  }
-
-  const html = allBouquets.map(b => {
-    const title = (b.title || '').replace(/</g,'&lt;');
-    const desc = (b.desc || '').replace(/</g,'&lt;');
-    const master = (b.master || 'Ярослав').replace(/</g,'&lt;');
-    const price = (b.price || '').replace(/</g,'&lt;');
-    const photo = b.photo || '';
-    return `<div class="ready-card reveal in">
-      <div class="ready-img">
-        ${photo ? `<img src="${photo}" alt="${title}" loading="lazy" onerror="this.style.opacity=.3">` : ''}
-        <span class="ready-master">🌹 ${master}</span>
-      </div>
-      <div class="ready-body">
-        <h3>${title}</h3>
-        <div class="desc">${desc}</div>
-        <div class="ready-foot">
-          <div class="ready-price">${price} ₽<small>предоплата 50%</small></div>
-          <a href="#order" class="ready-buy" data-nav>Заказать</a>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-
-  if (homeGrid) homeGrid.innerHTML = html;
-  if (fullGrid) fullGrid.innerHTML = html;
-}
-
-function renderAdminBouquets() {
-  const grid = $('#adminBouquetsGrid');
-  if (!grid) return;
-  if (allBouquets.length === 0) {
-    grid.innerHTML = '<div class="admin-empty">Пока нет готовых букетов. Добавьте первый!</div>';
-    return;
-  }
-  grid.innerHTML = allBouquets.map(b => `
-    <div class="bouquet-admin-card" data-id="${b.id}">
-      <div class="img-wrap">
-        ${b.photo ? `<img src="${b.photo}" alt="${(b.title||'').replace(/</g,'&lt;')}" loading="lazy" onerror="this.style.opacity=.3">` : ''}
-        <span class="master-tag">${(b.master || 'Ярослав').replace(/</g,'&lt;')}</span>
-      </div>
-      <div class="info">
-        <h4>${(b.title || '').replace(/</g,'&lt;')}</h4>
-        <div class="desc">${(b.desc || '').replace(/</g,'&lt;')}</div>
-        <div class="price">${(b.price || '').replace(/</g,'&lt;')} ₽</div>
-        <div class="actions">
-          <button class="edit" data-action="edit" data-id="${b.id}">✎ Изменить</button>
-          <button class="del" data-action="del" data-id="${b.id}">🗑 Удалить</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-  grid.querySelectorAll('button[data-action]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.dataset.id;
-      if (btn.dataset.action === 'edit') editBouquet(id);
-      else if (btn.dataset.action === 'del') deleteBouquet(id);
-    });
-  });
-}
-
-onSnapshot(query(collection(db, 'bouquets'), orderBy('createdAt', 'desc')), (snap) => {
-  allBouquets = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-  renderReadyBouquets();
-  renderAdminBouquets();
-  if ($('#statBouquets')) $('#statBouquets').textContent = allBouquets.length;
-}, (err) => {
-  console.error('Bouquets load error:', err);
-});
-
-function openBouquetForm(bouquet) {
-  const wrapper = $('#bouquetFormWrapper');
-  wrapper.classList.add('open');
-  $('#bouquetFormTitle').textContent = bouquet ? 'Редактировать букет' : 'Новый букет';
-  $('#bouquetId').value = bouquet ? bouquet.id : '';
-  $('#bouquetTitle').value = bouquet ? (bouquet.title || '') : '';
-  $('#bouquetPrice').value = bouquet ? (bouquet.price || '') : '';
-  $('#bouquetMaster').value = bouquet ? (bouquet.master || 'Ярослав') : 'Ярослав';
-  $('#bouquetPhoto').value = bouquet ? (bouquet.photo || '') : '';
-  $('#bouquetDesc').value = bouquet ? (bouquet.desc || '') : '';
-  updateBouquetPreview();
-  wrapper.scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-function closeBouquetForm() {
-  $('#bouquetFormWrapper').classList.remove('open');
-  $('#bouquetForm').reset();
-  $('#bouquetId').value = '';
-}
-
-function updateBouquetPreview() {
-  const url = $('#bouquetPhoto').value.trim();
-  const box = $('#bouquetPreview');
-  const img = $('#bouquetPreviewImg');
-  if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
-    img.src = url;
-    box.classList.add('show');
-  } else {
-    box.classList.remove('show');
-    img.src = '';
-  }
-}
-
-function editBouquet(id) {
-  const b = allBouquets.find(x => x.id === id);
-  if (b) openBouquetForm(b);
-}
-
-async function deleteBouquet(id) {
-  if (!confirm('Удалить этот букет?')) return;
-  try {
-    await deleteDoc(doc(db, 'bouquets', id));
-    toast('Букет удалён', 'success');
-  } catch (err) { toast('Ошибка: ' + err.message, 'error'); }
-}
-
-$('#addBouquetBtn')?.addEventListener('click', () => openBouquetForm(null));
-$('#bouquetCancelBtn')?.addEventListener('click', closeBouquetForm);
-$('#bouquetPhoto')?.addEventListener('input', updateBouquetPreview);
-
-$('#bouquetForm')?.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = $('#bouquetSubmitBtn');
-  btn.disabled = true; btn.textContent = 'Сохраняю...';
-  const id = $('#bouquetId').value;
-  const data = {
-    title: $('#bouquetTitle').value.trim(),
-    price: $('#bouquetPrice').value.trim(),
-    master: $('#bouquetMaster').value,
-    photo: $('#bouquetPhoto').value.trim(),
-    desc: $('#bouquetDesc').value.trim()
-  };
-  try {
-    if (id) {
-      await updateDoc(doc(db, 'bouquets', id), data);
-      toast('Букет обновлён', 'success');
-    } else {
-      await addDoc(collection(db, 'bouquets'), { ...data, createdAt: serverTimestamp() });
-      toast('Букет добавлен', 'success');
+    // ---- шапка: чип пользователя ----
+    if (nav) {
+      nav.innerHTML = `
+        <a href="#order" class="nav-cta">Заказать</a>
+        <div class="user-chip" id="userChip">
+          <div class="ava">${(user.displayName || user.email || '?').charAt(0).toUpperCase()}</div>
+          <div class="name">${user.displayName || user.email.split('@')[0]}</div>
+        </div>`;
+      $('#userChip')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        $('#userDropdown').classList.toggle('open');
+      });
     }
-    closeBouquetForm();
-  } catch (err) {
-    toast('Ошибка: ' + err.message, 'error');
-  } finally { btn.disabled = false; btn.textContent = 'Сохранить'; }
-});
+    if($('#ddName')) $('#ddName').textContent = user.displayName || user.email.split('@')[0];
+    if($('#ddEmail')) $('#ddEmail').textContent = user.email;
 
-const revGrid = $('#revGrid');
-let allReviews = [];
-function starsHtml(n) { return '★'.repeat(n) + '☆'.repeat(5-n); }
-function initials(name) { return name ? name.charAt(0).toUpperCase() : '?'; }
+    // ---- мобильное меню ----
+    const mobileAuth = $('#mobileLoginBtn');
+    if (mobileAuth) mobileAuth.style.display = 'none';
 
-function renderReviews() {
-  if (!revGrid) return;
-  if (allReviews.length === 0) {
-    revGrid.innerHTML = '<div class="rev-empty">Пока нет отзывов. Будьте первым — оставьте свой!</div>';
-    return;
-  }
-  revGrid.innerHTML = allReviews.map(r => {
-    const canDelete = isAdmin; 
-    const name = r.userName || 'Клиент';
-    const text = (r.text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return `<div class="rev reveal in ${canDelete ? 'rev-owner' : ''}" data-id="${r.id}">
-      ${canDelete ? '<button class="rev-del" title="Удалить">✕</button>' : ''}
-      <div class="rev-stars">${starsHtml(r.rating || 5)}</div>
-      <p>${text}</p>
-      <div class="rev-author"><div class="rev-ava">${initials(name)}</div><div><b>${name}</b><span>${(r.userCity || 'Пермский край')}</span></div></div>
-    </div>`;
-  }).join('');
-  revGrid.querySelectorAll('.rev-del').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      const id = e.target.closest('.rev').dataset.id;
-      if (!confirm('Удалить этот отзыв?')) return;
-      try {
-        await deleteDoc(doc(db, 'reviews', id));
-        toast('Отзыв удалён', 'success');
-      } catch (err) { toast('Не удалось удалить: ' + err.message, 'error'); }
-    });
-  });
-}
-
-onSnapshot(query(collection(db, 'reviews'), orderBy('createdAt', 'desc')), (snap) => {
-  allReviews = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-  renderReviews();
-  if ($('#statReviews')) $('#statReviews').textContent = allReviews.length;
-  if (isAdmin && typeof renderAdminReviews === 'function') renderAdminReviews();
-}, (err) => {
-  console.error(err);
-  if (revGrid) revGrid.innerHTML = '<div class="rev-empty">Не удалось загрузить отзывы.</div>';
-});
-
-let selectedStars = 5;
-const starsPicker = $('#starsPicker');
-if (starsPicker) {
-  starsPicker.querySelectorAll('span').forEach(s => {
-    s.addEventListener('click', () => {
-      selectedStars = +s.dataset.star;
-      starsPicker.querySelectorAll('span').forEach(x => x.classList.toggle('active', +x.dataset.star <= selectedStars));
-    });
-  });
-  starsPicker.querySelectorAll('span').forEach(x => x.classList.toggle('active', +x.dataset.star <= 5));
-}
-
-function updateReviewButton(logged) {
-  const btn = $('#openReviewBtn');
-  if (!btn) return;
-  if (logged) {
-    btn.textContent = 'Написать отзыв';
-    btn.onclick = () => { $('#revForm').classList.toggle('open'); };
+    // ---- чат ----
+    renderUserChat();
+    // ---- отзывы: показать кнопку удаления для своих ----
+    loadReviews();
+    // ---- заказы: если в форме есть поля ----
+    if ($('#orderForm')) {
+      if (!$('#orderName').value) $('#orderName').value = user.displayName || '';
+    }
+    // ---- админ-данные ----
+    if (isAdmin) {
+      initAdmin();
+    }
   } else {
-    btn.textContent = 'Войдите, чтобы оставить отзыв';
-    btn.onclick = () => openAuth('login');
-  }
-}
+    // ---- гость ----
+    if (nav) {
+      nav.innerHTML = `
+        <a href="#order" class="nav-cta">Заказать</a>
+        <button class="btn-auth" id="loginBtn">Войти</button>`;
+      $('#loginBtn')?.addEventListener('click', () => openAuth('login'));
+    }
+    $('#userDropdown').classList.remove('open');
+    const mobileAuth = $('#mobileLoginBtn');
+    if (mobileAuth) mobileAuth.style.display = 'block';
 
-$('#revForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  if (!currentUser) { openAuth('login'); return; }
-  const btn = $('#revSubmit');
-  const text = $('#revText').value.trim();
-  if (text.length < 5) { toast('Отзыв слишком короткий', 'error'); return; }
-  
-  btn.disabled = true; btn.textContent = 'Публикую...';
-  
-  try {
-    const userDoc = await getDoc(doc(db, 'users', currentUser.uid));
-    const userData = userDoc.exists() ? userDoc.data() : {};
-    
-    await addDoc(collection(db, 'reviews'), {
-      userId: currentUser.uid,
-      userName: currentUser.displayName || userData.name || currentUser.email.split('@')[0],
-      userCity: userData.city || '',
-      text: text,
-      rating: selectedStars,
-      createdAt: serverTimestamp()
-    });
-    
-    $('#revText').value = '';
-    $('#revForm').classList.remove('open');
-    toast('Спасибо за отзыв! ❤️', 'success');
-  } catch (err) {
-    toast('Ошибка: ' + err.message, 'error');
-  } finally { btn.disabled = false; btn.textContent = 'Опубликовать отзыв'; }
+    // ---- чат заблокирован ----
+    renderLockedChat();
+    // ---- отзывы: без кнопок удаления ----
+    loadReviews();
+  }
+
+  // Меню-дропдаун закрывается при клике вне
+  document.addEventListener('click', (e) => {
+    const dd = $('#userDropdown');
+    if (dd && dd.classList.contains('open') && !dd.contains(e.target) && !e.target.closest('#userChip')) {
+      dd.classList.remove('open');
+    }
+  });
 });
 
-const orderForm = $('#orderForm');
-if (orderForm) {
-  orderForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!currentUser) {
-      toast('Для заказа нужно войти в аккаунт!', 'error');
-      openAuth('login');
+/* ================== ЧАТ ПОЛЬЗОВАТЕЛЯ ================== */
+function renderLockedChat() {
+  const content = $('#chatContent');
+  if (!content) return;
+  content.innerHTML = `
+    <div class="chat-locked">
+      <h3>Войдите, чтобы написать</h3>
+      <p>Нужна бесплатная регистрация — 30 секунд</p>
+      <button class="btn btn-primary" id="chatLoginBtn">Войти / Регистрация</button>
+    </div>`;
+  $('#chatLoginBtn')?.addEventListener('click', () => openAuth('login'));
+}
+
+function renderUserChat() {
+  if (!currentUser) return renderLockedChat();
+  const content = $('#chatContent');
+  if (!content) return;
+  content.innerHTML = `
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Ваше сообщение..." maxlength="1000">
+      <button class="chat-send" id="chatSend">Отправить</button>
+    </div>`;
+  const body = $('#chatBody'), input = $('#chatInput'), send = $('#chatSend');
+
+  function scrollBottom(){ body.scrollTop = body.scrollHeight; }
+
+  const q = query(collection(db, 'chats', currentUser.uid, 'messages'), orderBy('createdAt', 'asc'));
+  if (currentChatUnsub) currentChatUnsub();
+  currentChatUnsub = onSnapshot(q, (snap) => {
+    body.innerHTML = '';
+    if (snap.empty) {
+      body.innerHTML = `<div class="chat-locked" style="padding:20px;"><p>Напишите первое сообщение — мы ответим при первой возможности 🌹</p></div>`;
+    } else {
+      snap.forEach(d => {
+        const m = d.data();
+        const div = document.createElement('div');
+        const cls = m.from === 'admin' ? 'msg msg-admin' : (m.from === 'user' ? 'msg msg-mine' : 'msg msg-other');
+        div.className = cls;
+        const t = m.createdAt && m.createdAt.toDate ? m.createdAt.toDate() : null;
+        const time = t ? t.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}) : '';
+        div.innerHTML = `${escapeHtml(m.text)}<span class="msg-time">${time}</span>`;
+        body.appendChild(div);
+      });
+    }
+    scrollBottom();
+  });
+
+  async function sendMsg() {
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    try {
+      await addDoc(collection(db, 'chats', currentUser.uid, 'messages'), {
+        text, from: 'user', uid: currentUser.uid,
+        name: currentUser.displayName || currentUser.email,
+        createdAt: serverTimestamp()
+      });
+      await setDoc(doc(db, 'chats', currentUser.uid), {
+        uid: currentUser.uid,
+        name: currentUser.displayName || currentUser.email,
+        email: currentUser.email,
+        lastMessage: text,
+        lastFrom: 'user',
+        updatedAt: serverTimestamp()
+      }, { merge: true });
+    } catch(e) {
+      toast('Не удалось отправить: ' + e.message, 'error');
+    }
+  }
+  send.addEventListener('click', sendMsg);
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); sendMsg(); } });
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ================== ОТЗЫВЫ ================== */
+let reviewStars = 5;
+function renderReviewStars(n) {
+  return '★'.repeat(n) + '☆'.repeat(5-n);
+}
+
+function loadReviews() {
+  const grid = $('#revGrid');
+  if (!grid) return;
+  const q = query(collection(db, 'reviews'), orderBy('createdAt', 'desc'));
+  onSnapshot(q, (snap) => {
+    grid.innerHTML = '';
+    if (snap.empty) {
+      grid.innerHTML = `<div class="rev-empty">Пока нет отзывов — станьте первым!</div>`;
       return;
     }
+    snap.forEach(d => {
+      const r = d.data();
+      const el = document.createElement('div');
+      el.className = 'rev';
+      if (currentUser && r.uid === currentUser.uid) el.classList.add('rev-owner');
+      el.innerHTML = `
+        <div class="rev-stars">${renderReviewStars(r.stars || 5)}</div>
+        <p>${escapeHtml(r.text || '')}</p>
+        <div class="rev-author">
+          <div class="rev-ava">${escapeHtml((r.name||'?').charAt(0).toUpperCase())}</div>
+          <div><b>${escapeHtml(r.name || 'Гость')}</b><span>${r.createdAt && r.createdAt.toDate ? r.createdAt.toDate().toLocaleDateString('ru-RU') : ''}</span></div>
+        </div>
+        ${ (currentUser && r.uid === currentUser.uid) ? `<button class="rev-del" data-id="${d.id}" title="Удалить">✕</button>` : '' }
+      `;
+      grid.appendChild(el);
+    });
+    grid.querySelectorAll('.rev-del').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (!confirm('Удалить отзыв?')) return;
+        try { await deleteDoc(doc(db, 'reviews', btn.dataset.id)); toast('Отзыв удалён'); }
+        catch(e){ toast('Ошибка: '+e.message,'error'); }
+      });
+    });
+  });
+}
+
+// форма отзыва
+const openReviewBtn = $('#openReviewBtn');
+const revForm = $('#revForm');
+const starsPicker = $('#starsPicker');
+if (openReviewBtn && revForm) {
+  openReviewBtn.addEventListener('click', () => {
+    if (!currentUser) return openAuth('login');
+    revForm.classList.toggle('open');
+  });
+  starsPicker.querySelectorAll('span').forEach(s => {
+    s.addEventListener('click', () => {
+      reviewStars = parseInt(s.dataset.star, 10);
+      starsPicker.querySelectorAll('span').forEach(x => {
+        x.classList.toggle('active', parseInt(x.dataset.star,10) <= reviewStars);
+      });
+    });
+  });
+  starsPicker.querySelectorAll('span').forEach(x => {
+    if (parseInt(x.dataset.star,10) <= reviewStars) x.classList.add('active');
+  });
+  revForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!currentUser) return openAuth('login');
+    const text = $('#revText').value.trim();
+    if (text.length < 3) return toast('Напишите отзыв подробнее', 'error');
+    const btn = $('#revSubmit');
+    btn.disabled = true; btn.textContent = 'Публикую...';
+    try {
+      await addDoc(collection(db, 'reviews'), {
+        uid: currentUser.uid,
+        name: currentUser.displayName || currentUser.email.split('@')[0],
+        text, stars: reviewStars,
+        createdAt: serverTimestamp()
+      });
+      toast('Спасибо за отзыв! 🌹', 'success');
+      revForm.reset(); revForm.classList.remove('open');
+      reviewStars = 5;
+      starsPicker.querySelectorAll('span').forEach(x => {
+        x.classList.toggle('active', parseInt(x.dataset.star,10) <= 5);
+      });
+    } catch(e) { toast('Ошибка: '+e.message, 'error'); }
+    finally { btn.disabled = false; btn.textContent = 'Опубликовать отзыв'; }
+  });
+}
+
+/* ================== ЗАКАЗ (форма) ================== */
+const orderForm = $('#orderForm');
+if (orderForm) {
+  // авто-расчёт
+  const qtyInput = $('#orderQty');
+  const calcBox = $('#calcBox');
+  if (qtyInput && calcBox) {
+    const perRose = $('#calcPerRose'), qtyOut = $('#calcQty'), totalOut = $('#calcTotal'), hintOut = $('#calcHint');
+    function updateCalc() {
+      const raw = qtyInput.value.trim();
+      const n = parseInt(raw, 10);
+      if (!raw || isNaN(n) || n <= 0) { calcBox.style.display = 'none'; return; }
+      calcBox.style.display = 'block';
+      const price = getRosePrice(n);
+      const total = n * price;
+      perRose.textContent = formatPrice(price);
+      qtyOut.textContent = n + ' шт';
+      totalOut.textContent = formatPrice(total);
+      if (n < 5) hintOut.textContent = '⚠️ Минимальный заказ — 5 роз. Уточните количество у мастера.';
+      else if (n < 13) hintOut.textContent = `Добавьте ещё ${13-n} роз — и цена за штуку снизится до 68 ₽ (экономия ${formatPrice((75-68)*n)}).`;
+      else if (n < 19) hintOut.textContent = `Добавьте ещё ${19-n} роз — и цена за штуку снизится до 63 ₽ (экономия ${formatPrice((68-63)*n)}).`;
+      else hintOut.textContent = '✅ Максимальная скидка — 63 ₽ за розу.';
+    }
+    qtyInput.addEventListener('input', updateCalc);
+    qtyInput.addEventListener('change', updateCalc);
+  }
+
+  orderForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!currentUser) return openAuth('login');
+    if (!$('#orderConsent').checked) return toast('Нужно согласие на обработку данных', 'error');
     const btn = $('#orderSubmit');
     btn.disabled = true; btn.textContent = 'Отправляю...';
     try {
+      const qtyVal = parseInt($('#orderQty').value, 10) || 0;
+      const totalVal = calcBouquetTotal(qtyVal);
       await addDoc(collection(db, 'orders'), {
+        uid: currentUser.uid,
+        email: currentUser.email,
         name: $('#orderName').value.trim(),
         phone: $('#orderPhone').value.trim(),
         city: $('#orderCity').value.trim(),
         contact: $('#orderContact').value,
         date: $('#orderDate').value.trim(),
-        qty: $('#orderQty').value.trim(),
+        qty: qtyVal,
+        pricePerRose: getRosePrice(qtyVal),
+        total: totalVal,
         color: $('#orderColor').value.trim(),
         comment: $('#orderComment').value.trim(),
-        consent: $('#orderConsent').checked,
-        createdAt: serverTimestamp(),
-        userId: currentUser ? currentUser.uid : null
-      });
-      toast('Заявка отправлена! Я свяжусь с вами лично 🌹', 'success');
-      orderForm.reset();
-      btn.textContent = 'Отправлено ✓';
-      setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.disabled = false; }, 3000);
-    } catch (err) {
-      console.error('Firestore save error:', err);
-      toast('Ошибка отправки. Напишите мне в чат или позвоните.', 'error');
-      btn.textContent = 'Отправить заявку';
-      btn.disabled = false;
-    }
-  });
-}
-
-let chatUnsub = null;
-function renderChat() {
-  const box = $('#chatContent');
-  if (!box) return;
-  if (!currentUser) {
-    box.innerHTML = `<div class="chat-locked"><h3>Войдите, чтобы написать</h3><p>Нужна бесплатная регистрация — 30 секунд</p><button class="btn btn-primary" id="chatLoginBtn2">Войти / Регистрация</button></div>`;
-    $('#chatLoginBtn2').addEventListener('click', () => openAuth('login'));
-    if (chatUnsub) { chatUnsub(); chatUnsub = null; }
-    return;
-  }
-  if (chatUnsub) { chatUnsub(); chatUnsub = null; }
-  box.innerHTML = `
-    <div class="chat-body" id="chatBody"><div style="text-align:center;color:var(--muted);font-style:italic;font-size:.88rem;padding:20px;">Загружаю сообщения...</div></div>
-    <div class="chat-input-row">
-      <input type="text" id="chatInput" placeholder="Напишите сообщение..." maxlength="500">
-      <button class="chat-send" id="chatSend">Отправить</button>
-    </div>
-  `;
-  const body = $('#chatBody');
-  const input = $('#chatInput');
-  const send = $('#chatSend');
-  const qc = query(collection(db, 'chats', currentUser.uid, 'messages'), orderBy('createdAt', 'asc'));
-  chatUnsub = onSnapshot(qc, (snap) => {
-    if (snap.empty) {
-      body.innerHTML = '<div style="text-align:center;color:var(--muted);font-style:italic;padding:40px 20px;font-size:.88rem;">Пока нет сообщений. Напишите первым 👋</div>';
-      return;
-    }
-    body.innerHTML = snap.docs.map(d => {
-      const m = d.data();
-      const isMine = m.userId === currentUser.uid;
-      const isFromAdmin = m.isAdmin === true;
-      const cls = isFromAdmin ? 'msg-other msg-admin' : (isMine ? 'msg-mine' : 'msg-other');
-      const time = m.createdAt?.toDate ? m.createdAt.toDate().toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit'}) : '';
-      const text = (m.text || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      const label = isFromAdmin ? '<span style="font-size:.7rem;opacity:.85;display:block;margin-bottom:4px;">🌹 ATELIER ROSE</span>' : '';
-      return `<div class="msg ${cls}">${label}${text}<span class="msg-time">${time}</span></div>`;
-    }).join('');
-    body.scrollTop = body.scrollHeight;
-  }, (err) => {
-    console.error(err);
-    body.innerHTML = '<div style="text-align:center;color:var(--error);padding:30px;">Ошибка загрузки.</div>';
-  });
-  async function sendMsg() {
-    const text = input.value.trim();
-    if (!text) return;
-    input.value = '';
-    send.disabled = true;
-    try {
-      await addDoc(collection(db, 'chats', currentUser.uid, 'messages'), {
-        userId: currentUser.uid,
-        userName: currentUser.displayName || 'Клиент',
-        isAdmin: false,
-        text: text,
+        status: 'new',
         createdAt: serverTimestamp()
       });
-    } catch (err) {
-      toast('Не удалось: ' + err.message, 'error');
-    } finally { send.disabled = false; input.focus(); }
-  }
-  send.addEventListener('click', sendMsg);
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg(); });
-}
-
-let adminChatsUnsub = null;
-let adminOrdersUnsub = null;
-let selectedChatUserId = null;
-let currentChatUnsub = null;
-let allAdminMessages = [];
-let lastOrderCount = 0;
-let ordersInitialized = false;
-
-$$('.admin-tab').forEach(tab => tab.addEventListener('click', () => {
-  $$('.admin-tab').forEach(t => t.classList.remove('active'));
-  tab.classList.add('active');
-  $$('.admin-panel').forEach(p => p.classList.remove('active'));
-  $('#panel-' + tab.dataset.atab).classList.add('active');
-  const chatView = document.getElementById('adminChatView');
-  if (chatView) chatView.classList.remove('mobile-open');
-}));
-
-function loadAdminPanel() {
-  if (!isAdmin) return;
-  loadAdminChats();
-  loadAdminOrders();
-  renderAdminReviews();
-  renderAdminBouquets();
-}
-
-let allUserChats = [];
-
-function loadAdminChats() {
-  const qChats = collectionGroup(db, 'messages');
-  if (adminChatsUnsub) adminChatsUnsub();
-  adminChatsUnsub = onSnapshot(qChats, (snap) => {
-    allAdminMessages = snap.docs.map(d => {
-      const msg = d.data();
-      const userId = d.ref.parent.parent ? d.ref.parent.parent.id : null;
-      return { id: d.id, userId, ...msg };
-    }).filter(m => m.userId);
-    const chatsMap = {};
-    allAdminMessages.forEach(msg => {
-      if (!chatsMap[msg.userId]) {
-        chatsMap[msg.userId] = { userId: msg.userId, userName: msg.userName || 'Клиент', lastMsg: '', lastTime: 0, count: 0 };
-      }
-      const t = msg.createdAt?.toMillis?.() || 0;
-      if (t >= chatsMap[msg.userId].lastTime) {
-        chatsMap[msg.userId].lastMsg = msg.text || '';
-        chatsMap[msg.userId].lastTime = t;
-        if (msg.userName) chatsMap[msg.userId].userName = msg.userName;
-      }
-      chatsMap[msg.userId].count++;
-    });
-    allUserChats = Object.values(chatsMap).sort((a, b) => b.lastTime - a.lastTime);
-    renderAdminChatList();
-    if ($('#statChats')) $('#statChats').textContent = allUserChats.length;
-  }, (err) => {
-    console.error('Chats load error:', err);
+      orderForm.reset();
+      if (calcBox) calcBox.style.display = 'none';
+      window.location.hash = '#thanks';
+    } catch(e) {
+      toast('Не удалось отправить заявку: ' + e.message, 'error');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Отправить заявку';
+    }
   });
 }
 
-function renderAdminChatList() {
-  const list = $('#adminChatList');
-  if (!list) return;
-  if (allUserChats.length === 0) {
-    list.innerHTML = '<div class="admin-empty">Пока нет диалогов</div>';
+/* ================== ГОТОВЫЕ БУКЕТЫ (публичная часть) ================== */
+function renderReadyBouquets(snap, target) {
+  if (!target) return;
+  target.innerHTML = '';
+  if (snap.empty) {
+    target.innerHTML = `
+      <div class="ready-empty" style="grid-column:1/-1;">
+        <span class="emoji">🌷</span>
+        <h3>Пока нет готовых букетов</h3>
+        <p>Все букеты сейчас делаются на заказ. Оставьте заявку — соберём специально для вас.</p>
+        <a href="#order" class="btn btn-primary" data-nav>Оставить заявку →</a>
+      </div>`;
+    target.querySelectorAll('a[data-nav]').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault(); window.location.hash = a.getAttribute('href');
+    }));
     return;
   }
-  list.innerHTML = allUserChats.map(c => `
-    <div class="admin-chat-item ${c.userId === selectedChatUserId ? 'active' : ''}" data-uid="${c.userId}">
-      <b>${(c.userName || 'Клиент').replace(/</g,'&lt;')}</b>
-      <span>${(c.lastMsg || '').replace(/</g,'&lt;').substring(0, 50)}</span>
-    </div>
-  `).join('');
-  list.querySelectorAll('.admin-chat-item').forEach(item => {
-    item.addEventListener('click', () => openAdminChat(item.dataset.uid));
+  snap.forEach(d => {
+    const b = d.data();
+    const card = document.createElement('div');
+    card.className = 'ready-card reveal in';
+    card.innerHTML = `
+      <div class="ready-img">
+        <span class="ready-master">${escapeHtml(b.master || 'Ярослав')}</span>
+        <img src="${escapeHtml(b.photo || '')}" alt="${escapeHtml(b.title||'Букет')}">
+      </div>
+      <div class="ready-body">
+        <h3>${escapeHtml(b.title || 'Букет')}</h3>
+        <p class="desc">${escapeHtml(b.desc || '')}</p>
+        <div class="ready-foot">
+          <div class="ready-price">${formatPrice(parseInt(b.price,10)||0)}<small>цена</small></div>
+          <a href="#order" class="ready-buy" data-nav>Заказать</a>
+        </div>
+      </div>`;
+    target.appendChild(card);
+  });
+  target.querySelectorAll('a[data-nav]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault(); window.location.hash = a.getAttribute('href');
+  }));
+}
+
+function loadPublicBouquets() {
+  const q = query(collection(db, 'bouquets'), orderBy('createdAt', 'desc'));
+  onSnapshot(q, (snap) => {
+    renderReadyBouquets(snap, $('#readyGrid'));
+    renderReadyBouquets(snap, $('#readyGridFull'));
+    if ($('#statBouquets')) $('#statBouquets').textContent = snap.size;
   });
 }
 
-function openAdminChat(userId) {
-  selectedChatUserId = userId;
-  renderAdminChatList();
-  const chat = allUserChats.find(c => c.userId === userId);
+/* ================== АДМИНКА ================== */
+let adminInitialized = false;
+let adminChatsUnsub = null;
+let adminOrdersUnsub = null;
+let adminReviewsUnsub = null;
+let adminBouquetsUnsub = null;
+let currentAdminChatUid = null;
+let currentAdminChatUnsub = null;
+
+function initAdmin() {
+  if (adminInitialized) return;
+  adminInitialized = true;
+
+  // табы
+  $$('.admin-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      $$('.admin-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      $$('.admin-panel').forEach(p => p.classList.remove('active'));
+      const panel = $('#panel-' + tab.dataset.atab);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // Чаты
+  adminChatsUnsub && adminChatsUnsub();
+  adminChatsUnsub = onSnapshot(query(collection(db, 'chats'), orderBy('updatedAt', 'desc')), (snap) => {
+    const list = $('#adminChatList');
+    if (!list) return;
+    if ($('#statChats')) $('#statChats').textContent = snap.size;
+    list.innerHTML = '';
+    if (snap.empty) { list.innerHTML = `<div class="admin-empty">Пока нет диалогов</div>`; return; }
+    snap.forEach(d => {
+      const c = d.data();
+      const item = document.createElement('div');
+      item.className = 'admin-chat-item';
+      item.dataset.uid = d.id;
+      if (d.id === currentAdminChatUid) item.classList.add('active');
+      item.innerHTML = `<b>${escapeHtml(c.name||'Гость')}</b><span>${escapeHtml(c.lastMessage||'')}</span>`;
+      item.addEventListener('click', () => openAdminChat(d.id, c.name));
+      list.appendChild(item);
+    });
+  });
+
+  // Заявки
+  adminOrdersUnsub && adminOrdersUnsub();
+  adminOrdersUnsub = onSnapshot(query(collection(db, 'orders'), orderBy('createdAt', 'desc')), (snap) => {
+    const wrap = $('#adminOrders');
+    if (!wrap) return;
+    if ($('#statOrders')) $('#statOrders').textContent = snap.size;
+    wrap.innerHTML = '';
+    if (snap.empty) { wrap.innerHTML = `<div class="admin-empty">Заявок пока нет</div>`; return; }
+    snap.forEach(d => {
+      const o = d.data();
+      const card = document.createElement('div');
+      card.className = 'admin-order';
+      const created = o.createdAt && o.createdAt.toDate ? o.createdAt.toDate().toLocaleString('ru-RU') : '—';
+      card.innerHTML = `
+        <div class="admin-order-header">
+          <h4>${escapeHtml(o.name||'Без имени')}</h4>
+          <span>${created}</span>
+        </div>
+        <div class="admin-order-info">
+          <div><b>Телефон</b>${escapeHtml(o.phone||'—')}</div>
+          <div><b>Город</b>${escapeHtml(o.city||'—')}</div>
+          <div><b>Связь</b>${escapeHtml(o.contact||'—')}</div>
+          <div><b>Дата</b>${escapeHtml(o.date||'—')}</div>
+          <div><b>Кол-во роз</b>${o.qty||0}</div>
+          <div><b>Цена за розу</b>${formatPrice(o.pricePerRose||0)}</div>
+          <div><b>Оттенок</b>${escapeHtml(o.color||'—')}</div>
+        </div>
+        ${o.comment ? `<div style="margin-top:12px;font-size:.9rem;color:var(--muted);font-weight:300;"><b style="color:var(--text);font-weight:600;">Комментарий: </b>${escapeHtml(o.comment)}</div>` : ''}
+        <div class="admin-order-total"><span>Итого:</span><b>${formatPrice(o.total||0)}</b></div>
+        <div class="admin-order-actions">
+          <a href="tel:${escapeHtml(o.phone||'')}">📞 Позвонить</a>
+          <button class="btn-danger" data-del="${d.id}">🗑 Удалить</button>
+        </div>`;
+      wrap.appendChild(card);
+    });
+    wrap.querySelectorAll('[data-del]').forEach(b => {
+      b.addEventListener('click', async () => {
+        if (!confirm('Удалить заявку?')) return;
+        try { await deleteDoc(doc(db, 'orders', b.dataset.del)); toast('Удалено'); }
+        catch(e){ toast('Ошибка: '+e.message,'error'); }
+      });
+    });
+  });
+
+  // Отзывы в админке
+  adminReviewsUnsub && adminReviewsUnsub();
+  adminReviewsUnsub = onSnapshot(query(collection(db, 'reviews'), orderBy('createdAt', 'desc')), (snap) => {
+    const wrap = $('#adminReviews');
+    if (!wrap) return;
+    if ($('#statReviews')) $('#statReviews').textContent = snap.size;
+    wrap.innerHTML = '';
+    if (snap.empty) { wrap.innerHTML = `<div class="admin-empty">Отзывов пока нет</div>`; return; }
+    snap.forEach(d => {
+      const r = d.data();
+      const card = document.createElement('div');
+      card.className = 'admin-review';
+      card.innerHTML = `
+        <div class="admin-review-header">
+          <b>${escapeHtml(r.name||'Гость')}</b>
+          <span>${r.createdAt && r.createdAt.toDate ? r.createdAt.toDate().toLocaleString('ru-RU') : ''}</span>
+        </div>
+        <div class="admin-review-stars">${renderReviewStars(r.stars||5)}</div>
+        <p>${escapeHtml(r.text||'')}</p>
+        <button data-del="${d.id}">Удалить отзыв</button>`;
+      wrap.appendChild(card);
+    });
+    wrap.querySelectorAll('[data-del]').forEach(b => {
+      b.addEventListener('click', async () => {
+        if (!confirm('Удалить отзыв?')) return;
+        try { await deleteDoc(doc(db, 'reviews', b.dataset.del)); toast('Удалено'); }
+        catch(e){ toast('Ошибка: '+e.message,'error'); }
+      });
+    });
+  });
+
+  // Букеты в админке
+  adminBouquetsUnsub && adminBouquetsUnsub();
+  adminBouquetsUnsub = onSnapshot(query(collection(db, 'bouquets'), orderBy('createdAt', 'desc')), (snap) => {
+    const grid = $('#adminBouquetsGrid');
+    if (!grid) return;
+    if ($('#statBouquets')) $('#statBouquets').textContent = snap.size;
+    grid.innerHTML = '';
+    if (snap.empty) { grid.innerHTML = `<div class="admin-empty">Пока нет готовых букетов</div>`; return; }
+    snap.forEach(d => {
+      const b = d.data();
+      const card = document.createElement('div');
+      card.className = 'bouquet-admin-card';
+      card.innerHTML = `
+        <div class="img-wrap">
+          <span class="master-tag">${escapeHtml(b.master||'Ярослав')}</span>
+          <img src="${escapeHtml(b.photo||'')}" alt="">
+        </div>
+        <div class="info">
+          <h4>${escapeHtml(b.title||'Букет')}</h4>
+          <p class="desc">${escapeHtml(b.desc||'')}</p>
+          <div class="price">${formatPrice(parseInt(b.price,10)||0)}</div>
+          <div class="actions">
+            <button data-edit="${d.id}">✏️ Изменить</button>
+            <button class="del" data-del="${d.id}">🗑</button>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+    grid.querySelectorAll('[data-del]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (!confirm('Удалить букет?')) return;
+        try { await deleteDoc(doc(db, 'bouquets', btn.dataset.del)); toast('Удалено'); }
+        catch(e){ toast('Ошибка: '+e.message,'error'); }
+      });
+    });
+    grid.querySelectorAll('[data-edit]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const snap = await getDoc(doc(db, 'bouquets', btn.dataset.edit));
+        if (!snap.exists()) return;
+        const b = snap.data();
+        $('#bouquetId').value = btn.dataset.edit;
+        $('#bouquetTitle').value = b.title || '';
+        $('#bouquetPrice').value = b.price || '';
+        $('#bouquetMaster').value = (b.master === 'София' ? 'София' : 'Ярослав');
+        $('#bouquetPhoto').value = b.photo || '';
+        $('#bouquetDesc').value = b.desc || '';
+        $('#bouquetFormTitle').textContent = 'Изменить букет';
+        $('#bouquetFormWrapper').classList.add('open');
+        updateBouquetPreview();
+        window.scrollTo({top: 0, behavior:'smooth'});
+      });
+    });
+  });
+
+  // форма добавления/редактирования букета
+  const formWrapper = $('#bouquetFormWrapper');
+  $('#addBouquetBtn')?.addEventListener('click', () => {
+    $('#bouquetForm').reset();
+    $('#bouquetId').value = '';
+    $('#bouquetFormTitle').textContent = 'Новый букет';
+    formWrapper.classList.add('open');
+    $('#bouquetPreview').classList.remove('show');
+  });
+  $('#bouquetCancelBtn')?.addEventListener('click', () => {
+    formWrapper.classList.remove('open');
+    $('#bouquetForm').reset();
+    $('#bouquetId').value = '';
+  });
+  function updateBouquetPreview() {
+    const url = $('#bouquetPhoto').value.trim();
+    const wrap = $('#bouquetPreview'), img = $('#bouquetPreviewImg');
+    if (!url) { wrap.classList.remove('show'); return; }
+    img.src = url;
+    wrap.classList.add('show');
+  }
+  $('#bouquetPhoto')?.addEventListener('input', updateBouquetPreview);
+
+  $('#bouquetForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const id = $('#bouquetId').value;
+    const data = {
+      title: $('#bouquetTitle').value.trim(),
+      price: parseInt($('#bouquetPrice').value, 10) || 0,
+      master: $('#bouquetMaster').value,
+      photo: $('#bouquetPhoto').value.trim(),
+      desc: $('#bouquetDesc').value.trim()
+    };
+    try {
+      if (id) {
+        await updateDoc(doc(db, 'bouquets', id), data);
+        toast('Букет обновлён', 'success');
+      } else {
+        data.createdAt = serverTimestamp();
+        await addDoc(collection(db, 'bouquets'), data);
+        toast('Букет добавлен', 'success');
+      }
+      formWrapper.classList.remove('open');
+      $('#bouquetForm').reset();
+      $('#bouquetId').value = '';
+    } catch(e) { toast('Ошибка: '+e.message, 'error'); }
+  });
+
+  // Админ-чат: открытие диалога
+  const view = $('#adminChatView');
+  if (view) {
+    view.innerHTML = `<div class="admin-chat-empty">Выберите диалог слева</div>`;
+  }
+}
+
+function openAdminChat(uid, name) {
+  currentAdminChatUid = uid;
+  $$('.admin-chat-item').forEach(i => i.classList.toggle('active', i.dataset.uid === uid));
   const view = $('#adminChatView');
   if (!view) return;
+  view.classList.add('mobile-open');
   view.innerHTML = `
     <div class="admin-chat-view-header">
-      <button class="admin-back-btn" id="adminBackBtn" aria-label="К списку чатов">←</button>
-      <div style="flex:1;min-width:0;">
-        <b>${(chat?.userName || 'Клиент').replace(/</g,'&lt;')}</b>
-        <span>ID: ${userId}</span>
-      </div>
+      <button class="admin-back-btn" id="adminBackBtn">←</button>
+      <div><b>${escapeHtml(name||'Диалог')}</b><span>ID: ${uid.slice(0,8)}…</span></div>
     </div>
     <div class="admin-chat-messages" id="adminChatMessages"></div>
     <div class="admin-chat-input">
-      <input type="text" id="adminChatInput" placeholder="Ответить клиенту..." maxlength="500">
+      <input type="text" id="adminChatInput" placeholder="Ответить клиенту..." maxlength="1000">
       <button id="adminChatSend">Отправить</button>
-    </div>
-  `;
-  if (window.innerWidth <= 620) {
-    view.classList.add('mobile-open');
-    document.body.style.overflow = 'hidden';
-  }
+    </div>`;
   $('#adminBackBtn').addEventListener('click', () => {
     view.classList.remove('mobile-open');
-    document.body.style.overflow = '';
-    selectedChatUserId = null;
-    renderAdminChatList();
+    currentAdminChatUid = null;
   });
   const messages = $('#adminChatMessages');
-  if (currentChatUnsub) currentChatUnsub();
-  const qc = query(collection(db, 'chats', userId, 'messages'), orderBy('createdAt', 'asc'));
-  currentChatUnsub = onSnapshot(qc, (snap) => {
-    if (snap.empty) {
-      messages.innerHTML = '<div style="text-align:center;color:var(--muted);font-style:italic;padding:30px;font-size:.88rem;">Сообщений нет</div>';
-      return;
-    }
-    messages.innerHTML = snap.docs.map(d => {
+  if (currentAdminChatUnsub) currentAdminChatUnsub();
+  const q = query(collection(db, 'chats', uid, 'messages'), orderBy('createdAt', 'asc'));
+  currentAdminChatUnsub = onSnapshot(q, (snap) => {
+    messages.innerHTML = '';
+    snap.forEach(d => {
       const m = d.data();
-      const isFromAdmin = m.isAdmin === true;
-      const cls = isFromAdmin ? 'msg-mine' : 'msg-other';
-      const time = m.createdAt?.toDate ? m.createdAt.toDate().toLocaleString('ru-RU', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'}) : '';
-      const text = (m.text || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      const label = isFromAdmin ? '<span style="font-size:.7rem;opacity:.85;display:block;margin-bottom:4px;">🌹 Вы</span>' : '<span style="font-size:.7rem;opacity:.85;display:block;margin-bottom:4px;">👤 Клиент</span>';
-      return `<div class="msg ${cls}">${label}${text}<span class="msg-time">${time}</span></div>`;
-    }).join('');
+      const div = document.createElement('div');
+      div.className = m.from === 'admin' ? 'msg msg-mine' : 'msg msg-other';
+      const t = m.createdAt && m.createdAt.toDate ? m.createdAt.toDate().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}) : '';
+      div.innerHTML = `${escapeHtml(m.text)}<span class="msg-time">${t}</span>`;
+      messages.appendChild(div);
+    });
     messages.scrollTop = messages.scrollHeight;
   });
-  const input = $('#adminChatInput');
-  const send = $('#adminChatSend');
+
   async function adminSend() {
+    const input = $('#adminChatInput');
     const text = input.value.trim();
     if (!text) return;
     input.value = '';
-    send.disabled = true;
     try {
-      await addDoc(collection(db, 'chats', userId, 'messages'), {
-        userId: userId,
-        userName: 'ATELIER ROSE',
-        isAdmin: true,
-        text: text,
-        createdAt: serverTimestamp()
+      await addDoc(collection(db, 'chats', uid, 'messages'), {
+        text, from: 'admin', createdAt: serverTimestamp()
       });
-    } catch (err) {
-      toast('Ошибка: ' + err.message, 'error');
-    } finally { send.disabled = false; input.focus(); }
+      await setDoc(doc(db, 'chats', uid), {
+        lastMessage: text, lastFrom: 'admin', updatedAt: serverTimestamp()
+      }, { merge: true });
+    } catch(e) { toast('Ошибка: '+e.message, 'error'); }
   }
-  send.addEventListener('click', adminSend);
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') adminSend(); });
+  $('#adminChatSend').addEventListener('click', adminSend);
+  $('#adminChatInput').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); adminSend(); } });
 }
 
-function loadAdminOrders() {
-  const qOrders = query(collection(db, 'orders'), orderBy('createdAt', 'desc'));
-  if (adminOrdersUnsub) adminOrdersUnsub();
-  adminOrdersUnsub = onSnapshot(qOrders, (snap) => {
-    const orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    renderAdminOrders(orders);
-    if ($('#statOrders')) $('#statOrders').textContent = orders.length;
-    const badge = $('#adminBadge');
-    const badgeMobile = $('#adminBadgeMobile');
-    if (orders.length > 0) {
-      if (badge) { badge.style.display = 'inline-block'; badge.textContent = orders.length; }
-      if (badgeMobile) { badgeMobile.style.display = 'inline-block'; badgeMobile.textContent = orders.length; }
-    } else {
-      if (badge) badge.style.display = 'none';
-      if (badgeMobile) badgeMobile.style.display = 'none';
-    }
-    lastOrderCount = orders.length;
-    ordersInitialized = true;
-  }, (err) => {
-    console.error('Orders load error:', err);
-  });
-}
-
-function renderAdminOrders(orders) {
-  const box = $('#adminOrders');
-  if (!box) return;
-  if (orders.length === 0) {
-    box.innerHTML = '<div class="admin-empty">Пока нет заявок</div>';
-    return;
-  }
-  box.innerHTML = orders.map(o => {
-    const date = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString('ru-RU') : '';
-    return `<div class="admin-order" data-id="${o.id}">
-      <div class="admin-order-header">
-        <h4>🌹 ${(o.name || 'Без имени').replace(/</g,'&lt;')}</h4>
-        <span>${date}</span>
-      </div>
-      <div class="admin-order-info">
-        <div><b>Телефон</b>${(o.phone || '—').replace(/</g,'&lt;')}</div>
-        <div><b>Способ связи</b>${(o.contact || '—').replace(/</g,'&lt;')}</div>
-        <div><b>Город</b>${(o.city || '—').replace(/</g,'&lt;')}</div>
-        <div><b>Дата события</b>${(o.date || '—').replace(/</g,'&lt;')}</div>
-        <div><b>Количество роз</b>${(o.qty || '—').replace(/</g,'&lt;')}</div>
-        <div><b>Оттенок</b>${(o.color || '—').replace(/</g,'&lt;')}</div>
-      </div>
-      ${o.comment ? `<div style="margin-top:14px;padding:14px;background:var(--bg-alt);border-radius:12px;font-size:.88rem;font-weight:300;"><b style="display:block;font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.08em;margin-bottom:4px;">Комментарий</b>${o.comment.replace(/</g,'&lt;')}</div>` : ''}
-      <div class="admin-order-actions">
-        <a href="tel:${(o.phone || '').replace(/[^0-9+]/g,'')}">📞 Позвонить</a>
-        <a href="https://wa.me/${(o.phone || '').replace(/[^0-9]/g,'')}" target="_blank">💬 WhatsApp</a>
-        <button class="btn-danger admin-order-del">🗑 Удалить</button>
-      </div>
-    </div>`;
-  }).join('');
-  box.querySelectorAll('.admin-order-del').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      const id = e.target.closest('.admin-order').dataset.id;
-      if (!confirm('Удалить заявку?')) return;
-      try {
-        await deleteDoc(doc(db, 'orders', id));
-        toast('Заявка удалена', 'success');
-      } catch (err) { toast('Ошибка: ' + err.message, 'error'); }
-    });
-  });
-}
-
-function renderAdminReviews() {
-  const box = $('#adminReviews');
-  if (!box) return;
-  if (allReviews.length === 0) {
-    box.innerHTML = '<div class="admin-empty">Пока нет отзывов</div>';
-    return;
-  }
-  box.innerHTML = allReviews.map(r => {
-    const date = r.createdAt?.toDate ? r.createdAt.toDate().toLocaleString('ru-RU') : '';
-    return `<div class="admin-review" data-id="${r.id}">
-      <div class="admin-review-header">
-        <b>${(r.userName || 'Клиент').replace(/</g,'&lt;')} · ${(r.userCity || '—').replace(/</g,'&lt;')}</b>
-        <span>${date}</span>
-      </div>
-      <div class="admin-review-stars">${starsHtml(r.rating || 5)}</div>
-      <p>${(r.text || '').replace(/</g,'&lt;')}</p>
-      <button class="admin-review-del">🗑 Удалить отзыв</button>
-    </div>`;
-  }).join('');
-  box.querySelectorAll('.admin-review-del').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      const id = e.target.closest('.admin-review').dataset.id;
-      if (!confirm('Удалить отзыв?')) return;
-      try {
-        await deleteDoc(doc(db, 'reviews', id));
-        toast('Отзыв удалён', 'success');
-      } catch (err) { toast('Ошибка: ' + err.message, 'error'); }
-    });
-  });
-}
-
-let observer = null;
+/* ================== REVEAL + INIT ================== */
+let revealObserver = null;
 function observeReveals() {
-  if (observer) observer.disconnect();
   if (!('IntersectionObserver' in window)) {
-    $$('.page.active .reveal').forEach(el => el.classList.add('in'));
+    $$('.reveal').forEach(el => el.classList.add('in'));
     return;
   }
-  observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('in'), (i % 4) * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  $$('.page.active .reveal').forEach(el => observer.observe(el));
-}
-
-route();
-observeReveals();
-// 3D-наклон карточек (работает только на устройствах с мышкой)
-if (window.matchMedia("(pointer: fine)").matches) {
-  document.querySelectorAll('.ready-card, .work').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -5; // Максимум 5 градусов
-      const rotateY = ((x - centerX) / centerX) * 5;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in');
+      });
+    }, { threshold: 0.12 });
+  }
+  $$('.reveal').forEach(el => {
+    if (!el.classList.contains('in')) revealObserver.observe(el);
   });
 }
+
+// глобальная навигация по data-nav
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[data-nav]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (!href || !href.startsWith('#')) return;
+  e.preventDefault();
+  const id = href.slice(1);
+  if (id === 'admin' && !isAdmin) { toast('Доступ только для админа', 'error'); return; }
+  window.location.hash = href;
+  if (pages[id]) route();
+});
+
+// первичный рендер публичных данных
+loadReviews();
+loadPublicBouquets();
+observeReveals();
+route();
+  </div>
 </script>
 </body>
 </html>
