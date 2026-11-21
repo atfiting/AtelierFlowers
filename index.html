@@ -759,7 +759,8 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     </div>
     <div class="admin-tabs">
       <button class="admin-tab active" data-atab="chats">💬 Чаты</button>
-      <button class="admin-tab" data-atab="orders">📋 Заявки</button>
+      <button class="admin-tab" data-atab="orders">🔥 Новые</button>
+      <button class="admin-tab" data-atab="orders-done">✅ Принятые</button>
       <button class="admin-tab" data-atab="reviews">⭐ Отзывы</button>
       <button class="admin-tab" data-atab="bouquets">🌹 Готовые</button>
     </div>
@@ -771,6 +772,9 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     </div>
     <div class="admin-panel" id="panel-orders">
       <div class="admin-orders" id="adminOrders"><div class="admin-empty">Загружаю...</div></div>
+    </div>
+    <div class="admin-panel" id="panel-orders-done">
+      <div class="admin-orders" id="adminOrdersDone"><div class="admin-empty">Загружаю...</div></div>
     </div>
     <div class="admin-panel" id="panel-reviews">
       <div class="admin-reviews" id="adminReviews"><div class="admin-empty">Загружаю...</div></div>
@@ -1161,7 +1165,6 @@ function renderUserChat() {
     }
     body.scrollTop = body.scrollHeight;
     
-    // Пометить как прочитанные
     setDoc(doc(db, 'chats', currentUser.uid), { lastReadByUser: serverTimestamp() }, { merge: true }).catch(()=>{});
     if (typeof updateUnreadBadge === 'function') updateUnreadBadge(0);
   });
@@ -1478,16 +1481,28 @@ function initAdmin() {
 
   adminOrdersUnsub && adminOrdersUnsub();
   adminOrdersUnsub = onSnapshot(query(collection(db, 'orders'), orderBy('createdAt', 'desc')), (snap) => {
-    const wrap = $('#adminOrders');
-    if (!wrap) return;
+    const wrapNew = $('#adminOrders');
+    const wrapDone = $('#adminOrdersDone');
+    if (!wrapNew || !wrapDone) return;
+    
     if ($('#statOrders')) $('#statOrders').textContent = snap.size;
-    wrap.innerHTML = '';
-    if (snap.empty) { wrap.innerHTML = `<div class="admin-empty">Заявок пока нет</div>`; return; }
+    wrapNew.innerHTML = '';
+    wrapDone.innerHTML = '';
+    
+    let hasNew = false;
+    let hasDone = false;
+
     snap.forEach(d => {
       const o = d.data();
+      const isDone = o.status === 'accepted';
+      const targetWrap = isDone ? wrapDone : wrapNew;
+      if (isDone) hasDone = true; else hasNew = true;
+
       const card = document.createElement('div');
       card.className = 'admin-order';
       const created = o.createdAt && o.createdAt.toDate ? o.createdAt.toDate().toLocaleString('ru-RU') : '—';
+      const prepay = Math.round((o.total || 0) / 2);
+
       card.innerHTML = `
         <div class="admin-order-header">
           <h4>${escapeHtml(o.name||'Без имени')}</h4>
@@ -1504,15 +1519,23 @@ function initAdmin() {
         </div>
         ${o.comment ? `<div style="margin-top:12px;font-size:.9rem;color:var(--muted);font-weight:300;"><b style="color:var(--text);font-weight:600;">Комментарий: </b>${escapeHtml(o.comment)}</div>` : ''}
         <div class="admin-order-total"><span>Итого:</span><b>${formatPrice(o.total||0)}</b></div>
+        <div class="admin-order-total" style="color:var(--accent); border:none; padding-top:0; margin-top:4px;">
+          <span>Предоплата (50%):</span><b>${formatPrice(prepay)}</b>
+        </div>
         <div class="admin-order-actions">
+          ${!isDone ? `<button class="btn-primary" data-accept="${d.id}" data-uid="${o.uid}" data-total="${o.total}" style="background:var(--success); border-color:var(--success);">✅ Принять</button>` : ''}
           ${o.uid ? `<button data-chat="${o.uid}" data-name="${escapeHtml(o.name||'Клиент')}">💬 Написать в чат</button>` : ''}
           <a href="tel:${escapeHtml(o.phone||'')}">📞 Позвонить</a>
           <button class="btn-danger" data-del="${d.id}">🗑 Удалить</button>
         </div>`;
-      wrap.appendChild(card);
+      targetWrap.appendChild(card);
     });
-    
-    wrap.querySelectorAll('[data-del]').forEach(b => {
+
+    if (!hasNew) wrapNew.innerHTML = `<div class="admin-empty">Новых заявок нет</div>`;
+    if (!hasDone) wrapDone.innerHTML = `<div class="admin-empty">Принятых заявок пока нет</div>`;
+
+    // Удаление
+    document.querySelectorAll('[data-del]').forEach(b => {
       b.addEventListener('click', async () => {
         if (!confirm('Удалить заявку?')) return;
         try { await deleteDoc(doc(db, 'orders', b.dataset.del)); toast('Удалено'); }
@@ -1520,11 +1543,45 @@ function initAdmin() {
       });
     });
 
-    wrap.querySelectorAll('[data-chat]').forEach(btn => {
+    // Написать в чат
+    document.querySelectorAll('[data-chat]').forEach(btn => {
       btn.addEventListener('click', () => {
         $$('.admin-tab').forEach(t => t.classList.toggle('active', t.dataset.atab === 'chats'));
         $$('.admin-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-chats'));
         openAdminChat(btn.dataset.chat, btn.dataset.name);
+      });
+    });
+
+    // Принять заявку
+    document.querySelectorAll('[data-accept]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const orderId = btn.dataset.accept;
+        const clientUid = btn.dataset.uid;
+        const totalSum = parseInt(btn.dataset.total, 10) || 0;
+        const prepay = Math.round(totalSum / 2);
+        
+        if (!confirm(`Принять заявку? Клиенту уйдет сообщение с реквизитами на сумму предоплаты ${formatPrice(prepay)}.`)) return;
+
+        btn.disabled = true; btn.textContent = 'Принимаем...';
+        
+        try {
+          await updateDoc(doc(db, 'orders', orderId), { status: 'accepted' });
+          
+          if (clientUid) {
+            const text = `Здравствуйте! Ваша заявка принята. 🌹\n\nСумма вашего заказа: ${formatPrice(totalSum)}\nПредоплата 50%: ${formatPrice(prepay)}\n\nРеквизиты для перевода:\n[Вставьте сюда ваши реквизиты]\n\nПосле перевода, пожалуйста, напишите нам.`;
+            
+            await addDoc(collection(db, 'chats', clientUid, 'messages'), {
+              text: text, from: 'admin', createdAt: serverTimestamp()
+            });
+            await setDoc(doc(db, 'chats', clientUid), {
+              lastMessage: 'Ваша заявка принята, реквизиты отправлены', lastFrom: 'admin', updatedAt: serverTimestamp()
+            }, { merge: true });
+          }
+          toast('Заявка принята, сообщение отправлено!', 'success');
+        } catch(e) {
+          toast('Ошибка: ' + e.message, 'error');
+          btn.disabled = false; btn.textContent = '✅ Принять';
+        }
       });
     });
   });
@@ -1681,7 +1738,6 @@ function openAdminChat(uid, name) {
     currentAdminChatUid = null;
   });
   
-  // Создаем документ чата, если его еще нет (когда админ пишет первым)
   setDoc(doc(db, 'chats', uid), { uid, name: name || 'Клиент', updatedAt: serverTimestamp() }, { merge: true }).catch(()=>{});
 
   const messages = $('#adminChatMessages');
