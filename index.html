@@ -547,12 +547,12 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
           <p>Я не использую шаблоны: каждый букет собирается <b>индивидуально</b> под ваш повод, настроение и цветовую палитру.</p>
           <div class="master-signature">Ярослав</div>
         </div>
-       <div class="master-card reveal">
-  <h2>Привет, меня зовут <em>София</em></h2>
-  <p>Уже два года я занимаюсь созданием букетов из атласных лент. Мне нравится вкладывать частичку тепла в каждую работу — чтобы она радовала своего владельца как можно дольше.</p>
-  <p>Люблю экспериментировать с цветами и фактурами, чтобы каждая работа получилась <b>по-настоящему особенной</b>.</p>
-  <div class="master-signature">София</div>
-</div>
+        <div class="master-card reveal">
+          <h2>Привет, меня зовут <em>София</em></h2>
+          <p>Уже два года я занимаюсь созданием букетов из атласных лент. Мне нравится вкладывать частичку тепла в каждую работу — чтобы она радовала своего владельца как можно дольше.</p>
+          <p>Люблю экспериментировать с цветами и фактурами, чтобы каждая работа получилась <b>по-настоящему особенной</b>.</p>
+          <div class="master-signature">София</div>
+        </div>
       </div>
       <div class="about-meta reveal">
         <div class="about-meta-item"><span class="icon">🌹</span><b>10+</b><span>работ создано</span></div>
@@ -868,6 +868,7 @@ const firebaseConfig = {
 
 const ADMIN_EMAILS = ['atelier.rose@mail.ru', 'sonyavolozaninova@gmail.com'];
 const isAdminEmail = (email) => ADMIN_EMAILS.includes((email || '').toLowerCase());
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -945,9 +946,9 @@ function route() {
   else if (h === '#privacy') showPage('privacy');
   else if (h === '#thanks') showPage('thanks');
   else if (h === '#admin') {
-  if (currentUser && isAdminEmail(currentUser.email)) showPage('admin');
-  else { toast('Доступ только для админа', 'error'); showPage('home'); }
-}
+    if (currentUser && isAdminEmail(currentUser.email)) showPage('admin');
+    else { toast('Доступ только для админа', 'error'); showPage('home'); }
+  }
   else showPage('home', h);
 }
 window.addEventListener('hashchange', route);
@@ -1043,7 +1044,7 @@ let currentChatUnsub = null;
 
 onAuthStateChanged(auth, (user) => {
   currentUser = user;
-isAdmin = !!(user && isAdminEmail(user.email));
+  isAdmin = !!(user && isAdminEmail(user.email));
 
   const orderForm = $('#orderForm');
   const orderAuthNotice = $('#orderAuthNotice');
@@ -1078,11 +1079,17 @@ isAdmin = !!(user && isAdminEmail(user.email));
     }
     if($('#ddName')) $('#ddName').textContent = user.displayName || user.email.split('@')[0];
     if($('#ddEmail')) $('#ddEmail').textContent = user.email;
+    
     const mobileAuth = $('#mobileLoginBtn');
     if (mobileAuth) mobileAuth.style.display = 'none';
+
     renderUserChat();
     loadReviews();
+    
     if (isAdmin) initAdmin();
+    
+    watchUnread(user.uid);
+
   } else {
     if (nav) {
       nav.innerHTML = `
@@ -1090,10 +1097,17 @@ isAdmin = !!(user && isAdminEmail(user.email));
         <button class="btn-auth" id="loginBtn">Войти</button>`;
     }
     $('#userDropdown').classList.remove('open');
+    
     const mobileAuth = $('#mobileLoginBtn');
     if (mobileAuth) mobileAuth.style.display = 'block';
+
     renderLockedChat();
     loadReviews();
+
+    if (typeof updateUnreadBadge === 'function') {
+      updateUnreadBadge(0);
+    }
+    window.__lastUnread = 0;
   }
 });
 
@@ -1146,6 +1160,10 @@ function renderUserChat() {
       });
     }
     body.scrollTop = body.scrollHeight;
+    
+    // Пометить как прочитанные
+    setDoc(doc(db, 'chats', currentUser.uid), { lastReadByUser: serverTimestamp() }, { merge: true }).catch(()=>{});
+    if (typeof updateUnreadBadge === 'function') updateUnreadBadge(0);
   });
 
   async function sendMsg() {
@@ -1172,6 +1190,50 @@ function renderUserChat() {
 
 function escapeHtml(s){
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ===== УВЕДОМЛЕНИЯ О НЕПРОЧИТАННЫХ ===== */
+let unreadUnsub = null;
+function watchUnread(uid) {
+  if (unreadUnsub) unreadUnsub();
+  let lastRead = 0;
+  getDoc(doc(db, 'chats', uid)).then(s => {
+    if (s.exists() && s.data().lastReadByUser?.toDate) {
+      lastRead = s.data().lastReadByUser.toDate().getTime();
+    }
+  });
+  const q = query(collection(db, 'chats', uid, 'messages'), orderBy('createdAt', 'asc'));
+  unreadUnsub = onSnapshot(q, (snap) => {
+    let count = 0;
+    snap.forEach(d => {
+      const m = d.data();
+      if (m.from !== 'admin') return;
+      const t = m.createdAt?.toDate ? m.createdAt.toDate().getTime() : 0;
+      if (t > lastRead) count++;
+    });
+    updateUnreadBadge(count);
+  });
+}
+
+function updateUnreadBadge(n) {
+  let badge = document.getElementById('chatUnreadBadge');
+  const chatLink = document.querySelector('nav a[href="#chat"]');
+  if (!chatLink) return;
+  if (n > 0) {
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.id = 'chatUnreadBadge';
+      badge.style.cssText = 'background:var(--error);color:#fff;font-size:.6rem;padding:2px 6px;border-radius:20px;margin-left:4px;font-weight:700;line-height:1.3;display:inline-block;vertical-align:middle;';
+      chatLink.appendChild(badge);
+    }
+    badge.textContent = n;
+    if (n > (window.__lastUnread || 0)) {
+      toast('💬 Вам новое сообщение от ATELIER ROSE', 'success');
+    }
+  } else if (badge) {
+    badge.remove();
+  }
+  window.__lastUnread = n;
 }
 
 /* ===== ОТЗЫВЫ ===== */
@@ -1443,16 +1505,26 @@ function initAdmin() {
         ${o.comment ? `<div style="margin-top:12px;font-size:.9rem;color:var(--muted);font-weight:300;"><b style="color:var(--text);font-weight:600;">Комментарий: </b>${escapeHtml(o.comment)}</div>` : ''}
         <div class="admin-order-total"><span>Итого:</span><b>${formatPrice(o.total||0)}</b></div>
         <div class="admin-order-actions">
+          ${o.uid ? `<button data-chat="${o.uid}" data-name="${escapeHtml(o.name||'Клиент')}">💬 Написать в чат</button>` : ''}
           <a href="tel:${escapeHtml(o.phone||'')}">📞 Позвонить</a>
           <button class="btn-danger" data-del="${d.id}">🗑 Удалить</button>
         </div>`;
       wrap.appendChild(card);
     });
+    
     wrap.querySelectorAll('[data-del]').forEach(b => {
       b.addEventListener('click', async () => {
         if (!confirm('Удалить заявку?')) return;
         try { await deleteDoc(doc(db, 'orders', b.dataset.del)); toast('Удалено'); }
         catch(e){ toast('Ошибка: '+e.message,'error'); }
+      });
+    });
+
+    wrap.querySelectorAll('[data-chat]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        $$('.admin-tab').forEach(t => t.classList.toggle('active', t.dataset.atab === 'chats'));
+        $$('.admin-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-chats'));
+        openAdminChat(btn.dataset.chat, btn.dataset.name);
       });
     });
   });
@@ -1608,6 +1680,10 @@ function openAdminChat(uid, name) {
     view.classList.remove('mobile-open');
     currentAdminChatUid = null;
   });
+  
+  // Создаем документ чата, если его еще нет (когда админ пишет первым)
+  setDoc(doc(db, 'chats', uid), { uid, name: name || 'Клиент', updatedAt: serverTimestamp() }, { merge: true }).catch(()=>{});
+
   const messages = $('#adminChatMessages');
   if (currentAdminChatUnsub) currentAdminChatUnsub();
   const q = query(collection(db, 'chats', uid, 'messages'), orderBy('createdAt', 'asc'));
