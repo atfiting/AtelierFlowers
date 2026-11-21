@@ -761,6 +761,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
       <button class="admin-tab active" data-atab="chats">💬 Чаты</button>
       <button class="admin-tab" data-atab="orders">🔥 Новые</button>
       <button class="admin-tab" data-atab="orders-done">✅ Принятые</button>
+      <button class="admin-tab" data-atab="orders-completed">🏁 Завершённые</button>
       <button class="admin-tab" data-atab="reviews">⭐ Отзывы</button>
       <button class="admin-tab" data-atab="bouquets">🌹 Готовые</button>
     </div>
@@ -775,6 +776,9 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     </div>
     <div class="admin-panel" id="panel-orders-done">
       <div class="admin-orders" id="adminOrdersDone"><div class="admin-empty">Загружаю...</div></div>
+    </div>
+    <div class="admin-panel" id="panel-orders-completed">
+      <div class="admin-orders" id="adminOrdersCompleted"><div class="admin-empty">Загружаю...</div></div>
     </div>
     <div class="admin-panel" id="panel-reviews">
       <div class="admin-reviews" id="adminReviews"><div class="admin-empty">Загружаю...</div></div>
@@ -1483,20 +1487,28 @@ function initAdmin() {
   adminOrdersUnsub = onSnapshot(query(collection(db, 'orders'), orderBy('createdAt', 'desc')), (snap) => {
     const wrapNew = $('#adminOrders');
     const wrapDone = $('#adminOrdersDone');
-    if (!wrapNew || !wrapDone) return;
+    const wrapCompleted = $('#adminOrdersCompleted');
+    if (!wrapNew || !wrapDone || !wrapCompleted) return;
     
     if ($('#statOrders')) $('#statOrders').textContent = snap.size;
     wrapNew.innerHTML = '';
     wrapDone.innerHTML = '';
+    wrapCompleted.innerHTML = '';
     
     let hasNew = false;
     let hasDone = false;
+    let hasCompleted = false;
 
     snap.forEach(d => {
       const o = d.data();
-      const isDone = o.status === 'accepted';
-      const targetWrap = isDone ? wrapDone : wrapNew;
-      if (isDone) hasDone = true; else hasNew = true;
+      const status = o.status || 'new';
+      const isDone = status === 'accepted';
+      const isCompleted = status === 'completed';
+      
+      const targetWrap = isCompleted ? wrapCompleted : (isDone ? wrapDone : wrapNew);
+      if (isCompleted) hasCompleted = true;
+      else if (isDone) hasDone = true; 
+      else hasNew = true;
 
       const card = document.createElement('div');
       card.className = 'admin-order';
@@ -1523,7 +1535,8 @@ function initAdmin() {
           <span>Предоплата (50%):</span><b>${formatPrice(prepay)}</b>
         </div>
         <div class="admin-order-actions">
-          ${!isDone ? `<button class="btn-primary" data-accept="${d.id}" data-uid="${o.uid}" data-total="${o.total}" style="background:var(--success); border-color:var(--success);">✅ Принять</button>` : ''}
+          ${status === 'new' ? `<button class="btn-primary" data-accept="${d.id}" data-uid="${o.uid}" data-total="${o.total}" style="background:var(--success); border-color:var(--success);">✅ Принять</button>` : ''}
+          ${status === 'accepted' ? `<button class="btn-primary" data-complete="${d.id}" data-uid="${o.uid}" style="background:var(--accent); border-color:var(--accent);">🏁 Завершить</button>` : ''}
           ${o.uid ? `<button data-chat="${o.uid}" data-name="${escapeHtml(o.name||'Клиент')}">💬 Написать в чат</button>` : ''}
           <a href="tel:${escapeHtml(o.phone||'')}">📞 Позвонить</a>
           <button class="btn-danger" data-del="${d.id}">🗑 Удалить</button>
@@ -1533,6 +1546,7 @@ function initAdmin() {
 
     if (!hasNew) wrapNew.innerHTML = `<div class="admin-empty">Новых заявок нет</div>`;
     if (!hasDone) wrapDone.innerHTML = `<div class="admin-empty">Принятых заявок пока нет</div>`;
+    if (!hasCompleted) wrapCompleted.innerHTML = `<div class="admin-empty">Завершённых заявок пока нет</div>`;
 
     // Удаление
     document.querySelectorAll('[data-del]').forEach(b => {
@@ -1581,6 +1595,36 @@ function initAdmin() {
         } catch(e) {
           toast('Ошибка: ' + e.message, 'error');
           btn.disabled = false; btn.textContent = '✅ Принять';
+        }
+      });
+    });
+
+    // Завершить заявку
+    document.querySelectorAll('[data-complete]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const orderId = btn.dataset.complete;
+        const clientUid = btn.dataset.uid;
+        
+        if (!confirm('Завершить заказ? Клиенту уйдет сообщение о готовности.')) return;
+
+        btn.disabled = true; btn.textContent = 'Завершаем...';
+        
+        try {
+          await updateDoc(doc(db, 'orders', orderId), { status: 'completed' });
+          
+          if (clientUid) {
+            const text = `Спасибо за ваш заказ! 🌹 Букет готов и передан. Будем рады видеть вас снова! ✨`;
+            await addDoc(collection(db, 'chats', clientUid, 'messages'), {
+              text: text, from: 'admin', createdAt: serverTimestamp()
+            });
+            await setDoc(doc(db, 'chats', clientUid), {
+              lastMessage: 'Заказ завершён. Спасибо!', lastFrom: 'admin', updatedAt: serverTimestamp()
+            }, { merge: true });
+          }
+          toast('Заказ завершён!', 'success');
+        } catch(e) {
+          toast('Ошибка: ' + e.message, 'error');
+          btn.disabled = false; btn.textContent = '🏁 Завершить';
         }
       });
     });
