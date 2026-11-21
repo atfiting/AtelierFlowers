@@ -1582,7 +1582,7 @@ function initAdmin() {
           await updateDoc(doc(db, 'orders', orderId), { status: 'accepted' });
           
           if (clientUid) {
-            const text = `Здравствуйте! Ваша заявка принята. 🌹\n\nСумма вашего заказа: ${formatPrice(totalSum)}\nПредоплата 50%: ${formatPrice(prepay)}\n\nРеквизиты для перевода:\n[Вставьте сюда ваши реквизиты]\n\nПосле перевода, пожалуйста, напишите нам.`;
+            const text = `Здравствуйте! Ваша заявка принята. 🌹\n\nСумма вашего заказа: ${formatPrice(totalSum)}\nПредоплата 50%: ${formatPrice(prepay)}\n\nРеквизиты для перевода (Альфа-Банк):\n2200 1536 4343 0557\n\nПосле перевода, пожалуйста, напишите нам.`;
             
             await addDoc(collection(db, 'chats', clientUid, 'messages'), {
               text: text, from: 'admin', createdAt: serverTimestamp()
