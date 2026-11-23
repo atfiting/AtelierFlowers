@@ -478,7 +478,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
         <div class="hero-stats">
           <div class="stat"><b>10+</b><span>работ</span></div>
           <div class="stat"><b>1 год</b><span>опыта</span></div>
-          <div class="stat"><b>от 63 ₽</b><span>за розу</span></div>
+          <div class="stat"><b>от 65 ₽</b><span>за розу</span></div>
         </div>
       </div>
       <div class="hero-photo-wrap">
@@ -491,8 +491,8 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     </div>
   </section>
   <div class="marquee"><div class="marquee-track">
-    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item marquee-accent">предоплата 50%</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">от 63 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
-    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item marquee-accent">предоплата 50%</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">от 63 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
+    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item marquee-accent">предоплата 50%</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">от 65 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
+    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item marquee-accent">предоплата 50%</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">от 65 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
   </div></div>
   <section class="section-alt">
     <div class="container">
@@ -521,9 +521,9 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     <div class="container">
       <div class="section-head reveal"><div class="eyebrow">Портфолио</div><h2>Наши лучшие работы</h2><div class="divider center"></div><p>Примеры работ — каждую можно повторить под ваш запрос.</p></div>
       <div class="price-banner reveal">
-        <div class="price-item"><b>75 ₽</b><span>роза · 5–13 шт</span></div>
-        <div class="price-item"><b>68 ₽</b><span>роза · 13–19 шт</span></div>
-        <div class="price-item"><b>63 ₽</b><span>роза · от 19 шт</span></div>
+        <div class="price-item"><b>77 ₽</b><span>роза · 5–13 шт</span></div>
+        <div class="price-item"><b>70 ₽</b><span>роза · 13–19 шт</span></div>
+        <div class="price-item"><b>65 ₽</b><span>роза · от 19 шт</span></div>
         <div class="price-item"><b>40 ₽</b><span>плюмерия</span></div>
       </div>
       <div class="gallery-preview">
@@ -662,7 +662,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
       <button type="submit" class="form-submit" id="orderSubmit">Отправить заявку</button>
       <p class="form-note">Заявка сразу придёт мастеру — <b>я свяжусь с вами лично</b> по указанному телефону</p>
     </form>
-    <div class="info-note reveal"><p><b>Роза: 75 ₽ (5–13) · 68 ₽ (13–19) · 63 ₽ (от 19).</b> Плюмерия — 40 ₽. Итоговая цена зависит от цветов и декора. 🌹🌺</p></div>
+    <div class="info-note reveal"><p><b>Роза: 77 ₽ (5–13) · 70 ₽ (13–19) · 65 ₽ (от 19).</b> Плюмерия — 40 ₽. Итоговая цена зависит от цветов и декора. 🌹🌺</p></div>
   </div></section>
 </main>
 <main id="page-delivery" class="page">
@@ -885,17 +885,17 @@ const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 
 const ROSE_TIERS = [
-  { min: 19, price: 63 },
-  { min: 13, price: 68 },
-  { min: 5,  price: 75 }
+  { min: 19, price: 65 },
+  { min: 13, price: 70 },
+  { min: 5,  price: 77 }
 ];
 function getRosePrice(qty) {
   const n = parseInt(qty, 10);
-  if (!n || n < 5) return 75;
+  if (!n || n < 5) return 77;
   for (const tier of ROSE_TIERS) {
     if (n >= tier.min) return tier.price;
   }
-  return 75;
+  return 77;
 }
 function calcBouquetTotal(qty) {
   const n = parseInt(qty, 10);
@@ -1347,9 +1347,9 @@ if (orderForm) {
       qtyOut.textContent = n + ' шт';
       totalOut.textContent = formatPrice(total);
       if (n < 5) hintOut.textContent = '⚠️ Минимальный заказ — 5 роз. Уточните количество у мастера.';
-      else if (n < 13) hintOut.textContent = `Добавьте ещё ${13-n} роз — и цена за штуку снизится до 68 ₽ (экономия ${formatPrice((75-68)*n)}).`;
-      else if (n < 19) hintOut.textContent = `Добавьте ещё ${19-n} роз — и цена за штуку снизится до 63 ₽ (экономия ${formatPrice((68-63)*n)}).`;
-      else hintOut.textContent = '✅ Максимальная скидка — 63 ₽ за розу.';
+      else if (n < 13) hintOut.textContent = `Добавьте ещё ${13-n} роз — и цена за штуку снизится до 70 ₽ (экономия ${formatPrice((77-70)*n)}).`;
+      else if (n < 19) hintOut.textContent = `Добавьте ещё ${19-n} роз — и цена за штуку снизится до 65 ₽ (экономия ${formatPrice((70-65)*n)}).`;
+      else hintOut.textContent = '✅ Максимальная скидка — 65 ₽ за розу.';
     }
     qtyInput.addEventListener('input', updateCalc);
     qtyInput.addEventListener('change', updateCalc);
