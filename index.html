@@ -662,7 +662,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
       <button type="submit" class="form-submit" id="orderSubmit">Отправить заявку</button>
       <p class="form-note">Заявка сразу придёт мастеру — <b>я свяжусь с вами лично</b> по указанному телефону</p>
     </form>
-    <div class="info-note reveal"><p><b>Роза: 77 ₽ (5–13) · 70 ₽ (13–19) · 65 ₽ (от 19).</b> Плюмерия — 40 ₽. Итоговая цена зависит от цветов и декора. 🌹🌺</p></div>
+    <div class="info-note reveal"><p><b>Роза: 75 ₽ (5–13) · 70 ₽ (13–19) · 65 ₽ (от 19).</b> Плюмерия — 40 ₽. Итоговая цена зависит от цветов и декора. 🌹🌺</p></div>
   </div></section>
 </main>
 <main id="page-delivery" class="page">
@@ -887,11 +887,11 @@ const $$ = (s) => document.querySelectorAll(s);
 const ROSE_TIERS = [
   { min: 19, price: 65 },
   { min: 13, price: 70 },
-  { min: 5,  price: 77 }
+  { min: 5,  price: 75 }
 ];
 function getRosePrice(qty) {
   const n = parseInt(qty, 10);
-  if (!n || n < 5) return 77;
+  if (!n || n < 5) return 75;
   for (const tier of ROSE_TIERS) {
     if (n >= tier.min) return tier.price;
   }
@@ -1347,7 +1347,7 @@ if (orderForm) {
       qtyOut.textContent = n + ' шт';
       totalOut.textContent = formatPrice(total);
       if (n < 5) hintOut.textContent = '⚠️ Минимальный заказ — 5 роз. Уточните количество у мастера.';
-      else if (n < 13) hintOut.textContent = `Добавьте ещё ${13-n} роз — и цена за штуку снизится до 70 ₽ (экономия ${formatPrice((77-70)*n)}).`;
+      else if (n < 13) hintOut.textContent = `Добавьте ещё ${13-n} роз — и цена за штуку снизится до 70 ₽ (экономия ${formatPrice((75-70)*n)}).`;
       else if (n < 19) hintOut.textContent = `Добавьте ещё ${19-n} роз — и цена за штуку снизится до 65 ₽ (экономия ${formatPrice((70-65)*n)}).`;
       else hintOut.textContent = '✅ Максимальная скидка — 65 ₽ за розу.';
     }
